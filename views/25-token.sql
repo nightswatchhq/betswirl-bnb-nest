@@ -23,11 +23,13 @@ WITH calls AS (
   UNION ALL
   SELECT 'bank_v4' AS bank, block_number, result FROM "bank_v4_get_tokens" WHERE NOT CAST(reverted AS BOOLEAN)
 ), arr AS (
-  SELECT a.token, a.pos, c.result, CAST(nuthatch_uint256('0x' || substr(c.result, 67, 64)) AS BIGINT) AS n
+  SELECT a.token, a.pos, c.result, TRY_CAST(nuthatch_uint256('0x' || substr(c.result, 67, 64)) AS BIGINT) AS n
   FROM bs_token_added a JOIN calls c ON c.bank = a.bank AND c.block_number = a.block_number
+  -- TRY_CAST: the engine may evaluate this before k.i < arr.n removes the row, and past the array
+  -- the word is string data ("ETH" read as an offset), which does not fit a BIGINT.
 ), el AS (
   SELECT arr.token, arr.pos,
-         substr(arr.result, 3 + 2 * (64 + CAST(nuthatch_uint256('0x' || substr(arr.result, 3 + 64 * (2 + k.i), 64)) AS BIGINT))) AS e
+         substr(arr.result, 3 + 2 * (64 + TRY_CAST(nuthatch_uint256('0x' || substr(arr.result, 3 + 64 * (2 + k.i), 64)) AS BIGINT))) AS e
   FROM arr CROSS JOIN (VALUES (0), (1), (2), (3), (4), (5), (6), (7), (8), (9), (10), (11), (12), (13), (14), (15), (16), (17), (18), (19), (20), (21), (22), (23), (24), (25), (26), (27), (28), (29), (30), (31)) AS k(i) WHERE k.i < arr.n
 ), dec AS (
   SELECT token, pos, e, '0x' || substr(e, 89, 40) AS addr,
