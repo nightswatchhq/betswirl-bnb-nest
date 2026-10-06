@@ -111,22 +111,21 @@ same inputs on both sides rather than the deployment's true values; w1 is the de
 
 ## Running it
 
-GraphQL needs nuthatch built with `--features graph`, from a tree that includes
-[nightswatchhq/nuthatch#1949](https://github.com/nightswatchhq/nuthatch/pull/1949)
-(branch `pete/graph-nested-to-one`): a second to-one level, a single `@derivedFrom`, stored scalar
-lists, absent nullable variables and graph-node's id tie-break. Without it the SDK's Bets query is
-refused.
+GraphQL needs the `nuthatch-graph` release download, 4.12.0 or later: the default binary has no
+`/graphql` route, and releases before 4.11.0 refuse the SDK's Bets query. The step-by-step handback,
+tested cold, is [docs/stopgap/betswirl-bnb.md](https://github.com/nightswatchhq/nuthatch/blob/main/docs/stopgap/betswirl-bnb.md)
+in nuthatch; it also shows seeding from the public mirror instead of a full backfill.
 
 The BNB public endpoint refuses 10 or more addresses per `eth_getLogs` and anything older than about
 75 minutes, so a backfill needs an archive endpoint with a key. Keep it out of the repository:
 
 ```sh
-RPC=$(cat ~/.config/nightswatch/bnb-rpc)
-nuthatch dev --dir . --rpc "$RPC" --state-rpc "$RPC" --window 100000 --listen 127.0.0.1:8310
+RPC=...   # your archive endpoint
+nuthatch dev --dir . --rpc "$RPC" --state-rpc "$RPC" --window 100000
 ```
 
 `--state-rpc` resolves the five `getTokens()` calls. The GraphQL endpoint is
-`http://127.0.0.1:8310/graphql`, also at `/subgraphs/id/Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB`.
+`http://127.0.0.1:8288/graphql`, also at `/subgraphs/id/Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB`.
 
 ### Full backfill: what to expect
 
