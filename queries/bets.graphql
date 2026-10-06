@@ -1,0 +1,57 @@
+query Bets($first: Int, $skip: Int, $where: Bet_filter, $orderBy: Bet_orderBy, $orderDirection: OrderDirection) {
+  bets(
+    first: $first
+    skip: $skip
+    where: $where
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+    subgraphError: allow
+  ) {
+    ...Bet
+  }
+}
+
+fragment Bet on Bet {
+  id
+  gameId
+  gameAddress
+  user {
+    address: id
+  }
+  gameToken {
+    id
+    token {
+      address: id
+      symbol
+      name
+      decimals
+    }
+  }
+  affiliate {
+    address: id
+  }
+  encodedInput: inputValue
+  betAmount
+  betCount
+  stopLoss
+  stopGain
+  houseEdge
+  betTimestamp
+  isResolved: resolved
+  isRefunded: refunded
+  chargedVRFFees
+  betTxnHash
+  rollTotalBetAmount: totalBetAmount
+  payout
+  payoutMultiplier
+  rollTxnHash
+  encodedRolled: rolled
+  rollTimestamp
+  weightedGameBet {
+    config {
+      id
+      multipliers
+      weights
+    }
+  }
+}

@@ -1,0 +1,25 @@
+query Token($id: ID!) {
+  token(id: $id, subgraphError: allow) {
+    ...Token
+  }
+}
+
+fragment Token on Token {
+  id
+  address: id
+  symbol
+  name
+  decimals
+  betTxnCount
+  betCount
+  winTxnCount
+  userCount
+  totalWagered
+  totalPayout
+  dividendAmount
+  bankAmount
+  partnerAmount
+  affiliateAmount
+  treasuryAmount
+  teamAmount
+}

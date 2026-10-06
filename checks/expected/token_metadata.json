@@ -1,0 +1,37 @@
+[
+  {
+    "token": "0x0000000000000000000000000000000000000000",
+    "pos": 16690152000460,
+    "name": "ETH",
+    "symbol": "ETH",
+    "decimals": 18
+  },
+  {
+    "token": "0x3e0a7c7db7bb21bda290a80c9811de6d47781671",
+    "pos": 16831065000094,
+    "name": "BetSwirl Token",
+    "symbol": "BETS",
+    "decimals": 18
+  },
+  {
+    "token": "0x0000000000000000000000000000000000000000",
+    "pos": 18371391000234,
+    "name": "ETH",
+    "symbol": "ETH",
+    "decimals": 18
+  },
+  {
+    "token": "0x3e0a7c7db7bb21bda290a80c9811de6d47781671",
+    "pos": 18371440000316,
+    "name": "BetSwirl Token",
+    "symbol": "BETS",
+    "decimals": 18
+  },
+  {
+    "token": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+    "pos": 18372789000377,
+    "name": "Titano",
+    "symbol": "TITANO",
+    "decimals": 18
+  }
+]

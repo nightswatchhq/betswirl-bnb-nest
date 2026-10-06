@@ -1,0 +1,724 @@
+{
+ "data": {
+  "bets": [
+   {
+    "id": "81055545234501338907943195588131776914960139148095187949461109693288442546703",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0xbad7305991b429955018cec5da38f7c48633fccd"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "0",
+    "betAmount": "4124000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761412984",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "69205080000000",
+    "betTxnHash": "0xce8c787e92e6f2e3c705efac2d9f0b0ce4690c31aa4b17491f600e36da6055c4",
+    "rollTotalBetAmount": "4124000000000000000000",
+    "payout": "0",
+    "payoutMultiplier": "0",
+    "rollTxnHash": "0xd82fecc59f0ff791144ae2199134248e0a3b16c756ae50f57a81919ddac3e4ea",
+    "encodedRolled": [
+     "8"
+    ],
+    "rollTimestamp": "1761412992",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "79349472355315185598374345639732496012119207066290485154906536654878006975899",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0xbc4a0b57a0117c8f306367ccbbe0a29931206b4d"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "91",
+    "betAmount": "4062500000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761582564",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0xa1bc884d94a39fa22c0bbff8f05c0c475da8be973fdd272241002c23e308a091",
+    "rollTotalBetAmount": "4062500000000000000000",
+    "payout": "0",
+    "payoutMultiplier": "0",
+    "rollTxnHash": "0xbfb21adb625396b148a358df70b14ef09fafc64183cae8f2174128e550430ecc",
+    "encodedRolled": [
+     "4"
+    ],
+    "rollTimestamp": "1761582571",
+    "weightedGameBet": null
+   },
+   {
+    "id": "19315079038860994070893088315678535176482875570588291426287557845182411381509",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0x413bdbcbf4ad580a3a1f8d8b5b84a73723fa6edb"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "50",
+    "betAmount": "2225000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761783745",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0x34c39c6e03d08102b685f33f1d528137ce5da2c1a57fe8623c565fc75e8b652a",
+    "rollTotalBetAmount": "2225000000000000000000",
+    "payout": "0",
+    "payoutMultiplier": "0",
+    "rollTxnHash": "0x3c7b35089a5e9ec9eb4af4520832bd99f000622783c00b24d2a17fc699c67a10",
+    "encodedRolled": [
+     "12"
+    ],
+    "rollTimestamp": "1761783752",
+    "weightedGameBet": null
+   },
+   {
+    "id": "45343330730809283230691435741024351879700238480356748396046223574428915489566",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0x22ea53df18bb302716f9af3fbd0436eccf61a12f"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "0",
+    "betAmount": "2133787499999999909051",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761623201",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "69205080000000",
+    "betTxnHash": "0x25131f68c2b384680d18968278e7c69638d90198babc8aa833d82733786e2dda",
+    "rollTotalBetAmount": "2133787499999999909051",
+    "payout": "3033285620624999870712",
+    "payoutMultiplier": "1.421550000000000000000258202843535",
+    "rollTxnHash": "0x0d07c4305fa575cb1641303dcce166290d4305a7b33cdbd50a934ee8d341e717",
+    "encodedRolled": [
+     "7"
+    ],
+    "rollTimestamp": "1761623209",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "36803929964058455534723054521259982967748700864228580992349224832418786268615",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0xbad7305991b429955018cec5da38f7c48633fccd"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "0",
+    "betAmount": "2030924999999999954525",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761412915",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "69205080000000",
+    "betTxnHash": "0xab455ede7dc8dfce1aaa67cb17fe0eee4b9148bcbee3bd3d0fd74933eff5befe",
+    "rollTotalBetAmount": "2030924999999999954525",
+    "payout": "4124656355624999907644",
+    "payoutMultiplier": "2.030925000000000000000154793997809",
+    "rollTxnHash": "0x6bda778503f5531067c53d2047acc20752059e01554c45440ccbd218ab89c748",
+    "encodedRolled": [
+     "5"
+    ],
+    "rollTimestamp": "1761412930",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "52624895615979534769401751688005257501202639943746589098124669928877113200229",
+    "gameId": "Roulette",
+    "gameAddress": "0x6678e3b4ab2a8c8cdd068f132c21293ccbda33cb",
+    "user": {
+     "address": "0x12fb165cdd16a8983ca27d6cf6b8ab89eaa34f4a"
+    },
+    "gameToken": {
+     "id": "Roulette-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "8190",
+    "betAmount": "2000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761185328",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "79987000000000",
+    "betTxnHash": "0xa384497f1b712c50b2e0a2e39808e7ee7d32cf9c942f6174715a385622631d56",
+    "rollTotalBetAmount": "2000000000000000000000",
+    "payout": "6018666666666666666667",
+    "payoutMultiplier": "3.0093333333333333333335",
+    "rollTxnHash": "0x331581679ce04ff9c1bda97128df2bc1ac5aa0027515f729e5f61fc707914899",
+    "encodedRolled": [
+     "10"
+    ],
+    "rollTimestamp": "1761185337",
+    "weightedGameBet": null
+   },
+   {
+    "id": "48165399465836913607731169489918635469106279296663938028427103596897292889403",
+    "gameId": "CoinToss",
+    "gameAddress": "0xc3dff2489f8241729b824e23ed01f986fcdf8ec3",
+    "user": {
+     "address": "0x3066efc02e3620ea5af9674ac0fc9f9c253c0cc0"
+    },
+    "gameToken": {
+     "id": "CoinToss-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "0",
+    "betAmount": "1902000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761562148",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "31994800000000",
+    "betTxnHash": "0x86e68fea67b2df36cddd93fc42916c63dee11467b02d37387ae909bf125edad4",
+    "rollTotalBetAmount": "1902000000000000000000",
+    "payout": "0",
+    "payoutMultiplier": "0",
+    "rollTxnHash": "0x8f1e5c271bf60d679f95a090dea9a002c0a6e1228cbbe806ef9cb7432d4b97b0",
+    "encodedRolled": [
+     "1"
+    ],
+    "rollTimestamp": "1761562155",
+    "weightedGameBet": null
+   },
+   {
+    "id": "66266053554360444086609122990816591362974603739168190451315227817948533231883",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0xb10aa2694ae551263b2cb9aa69f9168c07b41257"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "20",
+    "betAmount": "1810272216796875000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761553183",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0x30b39da616b852cad09643b0c053435ab39dbd86d3fafab6048ecab0dc53ab6a",
+    "rollTotalBetAmount": "1810272216796875000000",
+    "payout": "2206269264221191406250",
+    "payoutMultiplier": "1.21875",
+    "rollTxnHash": "0xa17dbfc80ea59d5d3e22f96ef2fca376c3a5b7def706a033073dd5965a325821",
+    "encodedRolled": [
+     "27"
+    ],
+    "rollTimestamp": "1761553191",
+    "weightedGameBet": null
+   },
+   {
+    "id": "75110176391053862394599410792598328329529172354548178284469592024228181635353",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0xa13860dd316a1f1f718f893ce489811ecf994f94"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "1",
+    "betAmount": "1800457746640820232642",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761790388",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "82387000000000",
+    "betTxnHash": "0x6944f49b9fe5123171811573f4fce43aab283057de0eb65f4e45ce7f54c90731",
+    "rollTotalBetAmount": "1800457746640820232642",
+    "payout": "1828648413808848875435",
+    "payoutMultiplier": "1.015657500000000000000226545166506",
+    "rollTxnHash": "0x82406eac4f284087ea856335a8e37956a3063653c65c50176782aff5d91a57a6",
+    "encodedRolled": [
+     "5"
+    ],
+    "rollTimestamp": "1761790397",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "108967059118999026112463952707721541401101618494331430895060558996122654152239",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0xa13860dd316a1f1f718f893ce489811ecf994f94"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "1",
+    "betAmount": "1800457746640820232642",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761790427",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "82387000000000",
+    "betTxnHash": "0x14722cba9ddcdfb1ae25bf825f6281b5e4c47a2b19a25e72ddade964b6e40a19",
+    "rollTotalBetAmount": "1800457746640820232642",
+    "payout": "914411979219573177704",
+    "payoutMultiplier": "0.5078775000000000000002014182230472",
+    "rollTxnHash": "0x50f5ef47547fd46bdf705cf14b6579e149ce7b0f17511ee0c660053f25320dc1",
+    "encodedRolled": [
+     "6"
+    ],
+    "rollTimestamp": "1761790436",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "61329989086020297483981220584841827986338541516112797093494063014083605338311",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0x413bdbcbf4ad580a3a1f8d8b5b84a73723fa6edb"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "28",
+    "betAmount": "1600000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761783650",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0x56cfc161d4f6295b050cb1856ac0e7bd093e7288db81785cd51a7dce9e3aa84b",
+    "rollTotalBetAmount": "1600000000000000000000",
+    "payout": "2166666666666666666667",
+    "payoutMultiplier": "1.354166666666666666666875",
+    "rollTxnHash": "0xb7bad671a58ee5cca274f0e6fef327892a0c2c22ac6af09034be8e9e801eedf4",
+    "encodedRolled": [
+     "43"
+    ],
+    "rollTimestamp": "1761783659",
+    "weightedGameBet": null
+   },
+   {
+    "id": "100712941155264770148852224936778620065128115727034784564377587405800990252052",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0x00c7ecc4187f239e09d4cfea5abe6d3c18f923bc"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "0",
+    "betAmount": "1600000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761299668",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "34437765340904",
+    "betTxnHash": "0xa7199465c90350060d0d8f211910a25bef1069e951c62d9e7663ee621a55a2b5",
+    "rollTotalBetAmount": "1600000000000000000000",
+    "payout": "0",
+    "payoutMultiplier": "0",
+    "rollTxnHash": "0xb4f719237f18aa8266a02da8d71eec3e3cf0ac77abe62344792a0eab4f202e7d",
+    "encodedRolled": [
+     "8"
+    ],
+    "rollTimestamp": "1761299677",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "24940149622266602178756119088228283496550761052753338508698507832544770554711",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0xb10aa2694ae551263b2cb9aa69f9168c07b41257"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "20",
+    "betAmount": "1485351562500000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761553157",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0xc6c94ade232160109503b6bcec4a2fc02e35fda41c11325f810c0b69cce9c573",
+    "rollTotalBetAmount": "1485351562500000000000",
+    "payout": "1810272216796875000000",
+    "payoutMultiplier": "1.21875",
+    "rollTxnHash": "0x5a22084f22553225a7a223606973e81981154ba32ac3f9e194f2c2013763f6db",
+    "encodedRolled": [
+     "45"
+    ],
+    "rollTimestamp": "1761553167",
+    "weightedGameBet": null
+   },
+   {
+    "id": "23679522479950286373206229426107142514573578324010687846538751737610408960860",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0x7354e68b83f920d6b88e024bd0fe87b2202b1d6d"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "20",
+    "betAmount": "1477272727272727252057",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761191661",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0x9c4df197af87f7cee904b1a3386084069f2f91f7af661b6a957af4fc7b61fcff",
+    "rollTotalBetAmount": "1477272727272727252057",
+    "payout": "1800426136363636338445",
+    "payoutMultiplier": "1.218750000000000000000359615384615",
+    "rollTxnHash": "0x4a82c3c870963f1ff5eeed7633eaeea9673760f9f7302aae5202bbb6d6387436",
+    "encodedRolled": [
+     "53"
+    ],
+    "rollTimestamp": "1761191668",
+    "weightedGameBet": null
+   },
+   {
+    "id": "13888094355885526316577869806711026433080751055308127285787651317210837301855",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0xae28bdca1fafd10e0b0918cc94c0015a15dcf94a"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "1",
+    "betAmount": "1276754249999999956344",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761228906",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "69205080000000",
+    "betTxnHash": "0x4c4120a5a4e204c54a6adb7e132a6617c8bb9d54c99a67c186e994e5307a80c6",
+    "rollTotalBetAmount": "1276754249999999956344",
+    "payout": "1296745029669374955661",
+    "payoutMultiplier": "1.015657500000000000000425939447627",
+    "rollTxnHash": "0xf6fd4d3f6d7ab746844f822e5f17f1850b5ba37a70a0ede670624f5cdb5124ec",
+    "encodedRolled": [
+     "5"
+    ],
+    "rollTimestamp": "1761228913",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "93230097413487065819977413036258764503685476794464262439755002955922781229087",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0xe9cda054008227b67c5631075fb51d79b4c0b42c"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "20",
+    "betAmount": "1218750000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761205641",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0x6c14b8b4ff004d8c2a3259cfd5c577939f99b104077f16a4a5195935c16fa917",
+    "rollTotalBetAmount": "1218750000000000000000",
+    "payout": "0",
+    "payoutMultiplier": "0",
+    "rollTxnHash": "0x93f4dce079ad4dfa6aa433e9442a594a47445d7fd8de8d5917fe1c7912aa16e6",
+    "encodedRolled": [
+     "1"
+    ],
+    "rollTimestamp": "1761205650",
+    "weightedGameBet": null
+   },
+   {
+    "id": "89672848643391728855747201655759617527011425207285882241530824168319569896656",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0xc213d8e9e9ec1ccd02ac55a03d3146c364603ab0"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "20",
+    "betAmount": "1218750000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761193139",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "68869080000000",
+    "betTxnHash": "0x5ceb73a08432f3db3308655417e03a71e603d86a9e91fe47c51ea8a8f3d96edf",
+    "rollTotalBetAmount": "1218750000000000000000",
+    "payout": "1485351562500000000000",
+    "payoutMultiplier": "1.21875",
+    "rollTxnHash": "0x67d7f09ac673a8c974520cc40342c6391453e25e9aa8a0f81ba5ddf06975ace7",
+    "encodedRolled": [
+     "48"
+    ],
+    "rollTimestamp": "1761193146",
+    "weightedGameBet": null
+   },
+   {
+    "id": "6972062425356594223536740833594435016610813176935121167931211283470520860712",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0x8ed8c96baf6eca5c6ede19337548c7dbb5bffc88"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "2",
+    "betAmount": "1218750000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761232701",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "69205080000000",
+    "betTxnHash": "0x7ad144193ba3729aa71937adf53d21f73833895565083a9a76433d05c025c403",
+    "rollTotalBetAmount": "1218750000000000000000",
+    "payout": "371337890625000000000",
+    "payoutMultiplier": "0.3046875",
+    "rollTxnHash": "0x4175121597f6797a8d3d4d15387548c1d7d1b9e2990428d9afb0a53b6d8327d0",
+    "encodedRolled": [
+     "6"
+    ],
+    "rollTimestamp": "1761232711",
+    "weightedGameBet": {
+     "config": null
+    }
+   },
+   {
+    "id": "63983294317160535552244107918500400701244021573911964957197040294201750814666",
+    "gameId": "Dice",
+    "gameAddress": "0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f",
+    "user": {
+     "address": "0x0427b9493db7c4a5a8d2e9095cf4d4832398451c"
+    },
+    "gameToken": {
+     "id": "Dice-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "99",
+    "betAmount": "1218750000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761508352",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "38233906781856",
+    "betTxnHash": "0x586dfaf01056337e7ff663e6ee0c3372f6051592956f505c8697101cc828223f",
+    "rollTotalBetAmount": "1218750000000000000000",
+    "payout": "0",
+    "payoutMultiplier": "0",
+    "rollTxnHash": "0x1b9d0d1d614515e245797de255adc2970d250148bbfd0501dc0450167c0922f2",
+    "encodedRolled": [
+     "72"
+    ],
+    "rollTimestamp": "1761508359",
+    "weightedGameBet": null
+   },
+   {
+    "id": "4444187200648055467050828355863406329092456061113559921462020243012819901609",
+    "gameId": "CUSTOM_WEIGHTED_GAME",
+    "gameAddress": "0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b",
+    "user": {
+     "address": "0x9fdb4d59ffae405a65a167778703ab2305add72b"
+    },
+    "gameToken": {
+     "id": "CUSTOM_WEIGHTED_GAME-0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5",
+     "token": null
+    },
+    "affiliate": {
+     "address": "0xcd25325a6ef20bc5df9bceac0cc22a48d2e8f6ef"
+    },
+    "encodedInput": "1",
+    "betAmount": "1218750000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 0,
+    "betTimestamp": "1761516240",
+    "isResolved": true,
+    "isRefunded": false,
+    "chargedVRFFees": "69205080000000",
+    "betTxnHash": "0xb0d6811b48044be54c868446c388cf4d9ad1b9735253a78672d859b2846d5265",
+    "rollTotalBetAmount": "1218750000000000000000",
+    "payout": "1732989375000000000000",
+    "payoutMultiplier": "1.42194",
+    "rollTxnHash": "0xfc76fbb477ed55141c752a8e5958aec3c02725c2bc40fe77daf38bb27aa35b72",
+    "encodedRolled": [
+     "9"
+    ],
+    "rollTimestamp": "1761516249",
+    "weightedGameBet": {
+     "config": null
+    }
+   }
+  ]
+ }
+}

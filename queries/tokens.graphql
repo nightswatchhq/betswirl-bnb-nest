@@ -1,0 +1,32 @@
+query Tokens($first: Int, $skip: Int, $where: Token_filter, $orderBy: Token_orderBy, $orderDirection: OrderDirection) {
+  tokens(
+    first: $first
+    skip: $skip
+    where: $where
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+    subgraphError: allow
+  ) {
+    ...Token
+  }
+}
+
+fragment Token on Token {
+  id
+  address: id
+  symbol
+  name
+  decimals
+  betTxnCount
+  betCount
+  winTxnCount
+  userCount
+  totalWagered
+  totalPayout
+  dividendAmount
+  bankAmount
+  partnerAmount
+  affiliateAmount
+  treasuryAmount
+  teamAmount
+}

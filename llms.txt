@@ -1,0 +1,150 @@
+# nuthatch nest on bsc
+
+A self-hosted blockchain index. Query it locally; there is no third-party API.
+
+## Contracts
+- `bank_v1` = 0xc7130b9d454243be816b7f5ab09e7ef292b0c465
+- `bank_v2` = 0xf26e41e3714efe1ff03b423f45dcc31a98c21867
+- `bank_v3` = 0x2a555e3ad89571b931ff6c7b8b7e655d62dbc9f8
+- `bank_v3_5` = 0xa475f643aa480a3df3e9872b6e80e75ae99b19db
+- `bank_v4` = 0x8fb3110015fbcaa469ee45b64dcd2bdf544b9cfa
+- `dice_v1` = 0xd73812a2e5d57bbea5ef7a142d78da1c383a345f
+- `dice_v2` = 0xebe9f31b4f276bd42ff45946514710babc48ce5f
+- `dice_v3` = 0xcfe6e9c9452381d68186a511bb78450fdb43a75d
+- `dice_v4` = 0xf85b42ec9ab660dffb5490476f1db4edd3967486
+- `dice_v4_5` = 0x56b112c906e2d78b24bb53fcf534bb774732b540
+- `dice_v5` = 0xaa4d2931a9fe14c3dec8ac3f12923cbb535c0e5f
+- `coin_toss_v1` = 0x76739d9693aa2bb62c44ae1b9084d6937edb91aa
+- `coin_toss_v2` = 0xa6d00859fa870620b8b79294cd9c6b02fcf982f4
+- `coin_toss_v3` = 0x8bae4264c83b2dcc58c5aca33e4414a0cbad2ebf
+- `coin_toss_v4` = 0xa923837812865a279d4a5d92779092bdb9e8884c
+- `coin_toss_v4_5` = 0xaed16fb2203621bcf4c3894e7941b1c195075e6a
+- `coin_toss_v5` = 0xc3dff2489f8241729b824e23ed01f986fcdf8ec3
+- `roulette_v1` = 0x073b8573bc82dd35bfab4e7e23ccb9df78e183f8
+- `roulette_v2` = 0x105ad8cce099d051b6320d645671a3532b6159f7
+- `roulette_v2_5` = 0x6a3b4c2812e91ec6f3b72b2a04d517770e57dbb2
+- `roulette_v3` = 0x6678e3b4ab2a8c8cdd068f132c21293ccbda33cb
+- `keno_v1` = 0x144021ad08c37588fbbf49627a24310d0d961979
+- `keno_v1_5` = 0xf59b34d2e824b1c6bdac4fe597dd0790ae339e1a
+- `keno_v2` = 0xc3428e4feb5c770db51dcb9b1c08223b10994a89
+- `weighted_game_v1` = 0xdec2a4f75c5fae4a09c83975681ce1dd1dff764b
+- `freebet_v1` = 0x7a1efd33f41150e3247f14209b2a733bc6b1cb7a
+
+## Tables (one per contract event)
+- `bank_v1__add_token` - AddToken(address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token)
+- `bank_v1__allocate_house_edge_amount` - AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, dividend, referral, treasury, team)
+- `bank_v2__add_token` - AddToken(address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token)
+- `bank_v2__allocate_house_edge_amount` - AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, dividend, referral, partner, treasury, team)
+- `bank_v3_5__add_token` - AddToken(address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token)
+- `bank_v3_5__allocate_house_edge_amount` - AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, bank, dividend, partner, treasury, team)
+- `bank_v3__add_token` - AddToken(address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token)
+- `bank_v3__allocate_house_edge_amount` - AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, bank, dividend, partner, treasury, team)
+- `bank_v4__add_token` - AddToken(address,bool) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, added)
+- `bank_v4__allocate_house_edge_amount` - AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256,address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, bank, dividend, treasury, team, affiliate, affiliateAddress)
+- `coin_toss_v1__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `coin_toss_v1__place_bet` - PlaceBet(uint256,address,address,bool) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, face)
+- `coin_toss_v1__roll` - Roll(uint256,address,address,uint256,bool,bool,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, face, rolled, payout)
+- `coin_toss_v1__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `coin_toss_v2__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `coin_toss_v2__place_bet` - PlaceBet(uint256,address,address,bool) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, face)
+- `coin_toss_v2__roll` - Roll(uint256,address,address,uint256,bool,bool,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, face, rolled, payout)
+- `coin_toss_v2__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `coin_toss_v3__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `coin_toss_v3__place_bet` - PlaceBet(uint256,address,address,bool) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, face)
+- `coin_toss_v3__roll` - Roll(uint256,address,address,uint256,bool,bool,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, face, rolled, payout)
+- `coin_toss_v3__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `coin_toss_v4_5__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `coin_toss_v4_5__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,bool) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, face)
+- `coin_toss_v4_5__roll` - Roll(uint256,address,address,uint256,bool,bool,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, face, rolled, payout)
+- `coin_toss_v4_5__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `coin_toss_v4__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `coin_toss_v4__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,bool) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, face)
+- `coin_toss_v4__roll` - Roll(uint256,address,address,uint256,bool,bool,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, face, rolled, payout)
+- `coin_toss_v4__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `coin_toss_v5__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `coin_toss_v5__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,bool,address,uint32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, amount, chargedVRFCost, face, affiliate, betCount, stopGain, stopLoss)
+- `coin_toss_v5__roll` - Roll(uint256,address,address,uint256,bool,bool[],uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, totalBetAmount, face, rolled, payout)
+- `coin_toss_v5__set_affiliate_house_edge` - SetAffiliateHouseEdge(address,address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, affiliate, previousHouseEdge, houseEdge)
+- `coin_toss_v5__set_house_edge` - SetHouseEdge(address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, previousHouseEdge, houseEdge)
+- `dice_v1__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `dice_v1__place_bet` - PlaceBet(uint256,address,address,uint8) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, cap)
+- `dice_v1__roll` - Roll(uint256,address,address,uint256,uint8,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, cap, rolled, payout)
+- `dice_v1__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `dice_v2__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `dice_v2__place_bet` - PlaceBet(uint256,address,address,uint8) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, cap)
+- `dice_v2__roll` - Roll(uint256,address,address,uint256,uint8,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, cap, rolled, payout)
+- `dice_v2__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `dice_v3__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `dice_v3__place_bet` - PlaceBet(uint256,address,address,uint8) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, cap)
+- `dice_v3__roll` - Roll(uint256,address,address,uint256,uint8,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, cap, rolled, payout)
+- `dice_v3__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `dice_v4_5__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `dice_v4_5__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint8) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, cap)
+- `dice_v4_5__roll` - Roll(uint256,address,address,uint256,uint8,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, cap, rolled, payout)
+- `dice_v4_5__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `dice_v4__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `dice_v4__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint8) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, cap)
+- `dice_v4__roll` - Roll(uint256,address,address,uint256,uint8,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, cap, rolled, payout)
+- `dice_v4__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `dice_v5__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `dice_v5__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint8,address,uint32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, amount, chargedVRFCost, cap, affiliate, betCount, stopGain, stopLoss)
+- `dice_v5__roll` - Roll(uint256,address,address,uint256,uint8,uint8[],uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, totalBetAmount, cap, rolled, payout)
+- `dice_v5__set_affiliate_house_edge` - SetAffiliateHouseEdge(address,address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, affiliate, previousHouseEdge, houseEdge)
+- `dice_v5__set_house_edge` - SetHouseEdge(address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, previousHouseEdge, houseEdge)
+- `freebet_v1__place_free_bet` - PlaceFreeBet(uint256,address,address,uint256,address,uint256,address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, freeBetId, player, affiliate, betId, token, amount, game)
+- `keno_v1_5__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `keno_v1_5__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint40) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, numbers)
+- `keno_v1_5__roll` - Roll(uint256,address,address,uint256,uint40,uint40,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, numbers, rolled, payout)
+- `keno_v1_5__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `keno_v1__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `keno_v1__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint40) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, numbers)
+- `keno_v1__roll` - Roll(uint256,address,address,uint256,uint40,uint40,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, numbers, rolled, payout)
+- `keno_v1__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `keno_v2__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `keno_v2__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint40,address,uint32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, amount, chargedVRFCost, numbers, affiliate, betCount, stopGain, stopLoss)
+- `keno_v2__roll` - Roll(uint256,address,address,uint256,uint40,uint40[],uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, totalBetAmount, numbers, rolled, payout)
+- `keno_v2__set_affiliate_house_edge` - SetAffiliateHouseEdge(address,address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, affiliate, previousHouseEdge, houseEdge)
+- `keno_v2__set_house_edge` - SetHouseEdge(address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, previousHouseEdge, houseEdge)
+- `roulette_v1__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `roulette_v1__place_bet` - PlaceBet(uint256,address,address,uint40) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, numbers)
+- `roulette_v1__roll` - Roll(uint256,address,address,uint256,uint40,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, numbers, rolled, payout)
+- `roulette_v1__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `roulette_v2_5__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `roulette_v2_5__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint40) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, numbers)
+- `roulette_v2_5__roll` - Roll(uint256,address,address,uint256,uint40,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, numbers, rolled, payout)
+- `roulette_v2_5__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `roulette_v2__bet_refunded` - BetRefunded(uint256,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount, chainlinkVRFCost)
+- `roulette_v2__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint40) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, vrfCost, numbers)
+- `roulette_v2__roll` - Roll(uint256,address,address,uint256,uint40,uint8,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, token, amount, numbers, rolled, payout)
+- `roulette_v2__set_house_edge` - SetHouseEdge(address,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, houseEdge)
+- `roulette_v3__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `roulette_v3__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint40,address,uint32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, amount, chargedVRFCost, numbers, affiliate, betCount, stopGain, stopLoss)
+- `roulette_v3__roll` - Roll(uint256,address,address,uint256,uint40,uint8[],uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, totalBetAmount, numbers, rolled, payout)
+- `roulette_v3__set_affiliate_house_edge` - SetAffiliateHouseEdge(address,address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, affiliate, previousHouseEdge, houseEdge)
+- `roulette_v3__set_house_edge` - SetHouseEdge(address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, previousHouseEdge, houseEdge)
+- `weighted_game_v1__bet_refunded` - BetRefunded(uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, user, amount)
+- `weighted_game_v1__game_config_added` - GameConfigAdded(uint32,uint64[],uint64[],uint32) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, configId, weights, multipliers, gameId)
+- `weighted_game_v1__place_bet` - PlaceBet(uint256,address,address,uint256,uint256,uint32,address,uint32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, amount, chargedVRFCost, configId, affiliate, betCount, stopGain, stopLoss)
+- `weighted_game_v1__roll` - Roll(uint256,address,address,uint256,uint32,uint8[],uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, id, receiver, token, totalBetAmount, configId, rolled, payout)
+- `weighted_game_v1__set_affiliate_house_edge` - SetAffiliateHouseEdge(address,address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, affiliate, previousHouseEdge, houseEdge)
+- `weighted_game_v1__set_house_edge` - SetHouseEdge(address,uint16,uint16) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, token, previousHouseEdge, houseEdge)
+- `bank_v1_get_tokens` -  (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, calldata, result, reverted, content_address)
+- `bank_v2_get_tokens` -  (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, calldata, result, reverted, content_address)
+- `bank_v3_get_tokens` -  (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, calldata, result, reverted, content_address)
+- `bank_v3_5_get_tokens` -  (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, calldata, result, reverted, content_address)
+- `bank_v4_get_tokens` -  (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, calldata, result, reverted, content_address)
+
+## Live HTTP API (run `nuthatch dev`)
+- `GET /`                    index status
+- `GET /tables`              every table with its columns
+- `GET /table/{name}?limit=N` recent rows of one table (hot + sealed)
+- `GET /entity/{id}`         one row by id (`{block:012}-{logindex:06}`)
+- `GET /sql?q=SELECT...`     read-only SQL; each table is a view named `{alias}__{event}`
+- `GET /balances?limit=N`    top holder balances (when an ERC-20 Transfer table is present)
+- `GET /balance/{address}`   one address's derived balance
+- `GET /queries`             the nest's named queries (`views/*.sql`); `GET /q/{name}` runs one
+- `GET /derived`             the nest's incremental entities (`entities.toml`); `GET /derived/{entity}` reads one
+
+## MCP (for coding agents)
+Run `nuthatch mcp` (stdio) to expose tools: status, schema, tables, table, sql, entity,
+balance, top_balances. Fully offline against the local instance; nothing phones home.

@@ -1,0 +1,6 @@
+.env.rpc
+*.env
+nuthatch.redb*
+segments/
+data/
+*.log

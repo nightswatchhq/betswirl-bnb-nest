@@ -1,0 +1,1937 @@
+# semantic.toml - what this nest's data *means* (RFC-0016). Read by the MCP `schema`
+# tool, the admin UI, and the scaffolded skill. Edit descriptions freely; the
+# `[table.*.footguns]` are DERIVED from the ABI and regenerated - leave them be.
+
+schema_version = 1
+
+[nest]
+description = "The `betswirl-bnb` nest on bsc. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v1__add_token]
+description = "`AddToken(address)` events emitted by the `bank_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AddToken(address) event"
+
+[table.bank_v1__add_token.columns]
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v1__allocate_house_edge_amount]
+description = "`AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256)` events emitted by the `bank_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256) event"
+
+[table.bank_v1__allocate_house_edge_amount.columns]
+dividend = "The `dividend` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+referral = "The `referral` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+team = "The `team` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+treasury = "The `treasury` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v1__allocate_house_edge_amount.footguns]
+big_ints = [
+    "dividend",
+    "referral",
+    "treasury",
+    "team",
+]
+overflows_dec = [
+    "dividend",
+    "referral",
+    "treasury",
+    "team",
+]
+
+[table.bank_v1_get_tokens]
+description = "Result of the `bank_v1_get_tokens` call (selector `0x`). (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per sampled block this declaration fires at"
+
+[table.bank_v1_get_tokens.columns]
+calldata = "The `calldata` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+content_address = "The `content_address` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+result = "The `result` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+reverted = "The `reverted` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `reverted = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `reverted = 'true'` or `CAST(reverted AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v1_get_tokens.footguns]
+bools = ["reverted"]
+
+[table.bank_v2__add_token]
+description = "`AddToken(address)` events emitted by the `bank_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AddToken(address) event"
+
+[table.bank_v2__add_token.columns]
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v2__allocate_house_edge_amount]
+description = "`AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256)` events emitted by the `bank_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256) event"
+
+[table.bank_v2__allocate_house_edge_amount.columns]
+dividend = "The `dividend` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+partner = "The `partner` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+referral = "The `referral` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+team = "The `team` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+treasury = "The `treasury` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v2__allocate_house_edge_amount.footguns]
+big_ints = [
+    "dividend",
+    "referral",
+    "partner",
+    "treasury",
+    "team",
+]
+overflows_dec = [
+    "dividend",
+    "referral",
+    "partner",
+    "treasury",
+    "team",
+]
+
+[table.bank_v2_get_tokens]
+description = "Result of the `bank_v2_get_tokens` call (selector `0x`). (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per sampled block this declaration fires at"
+
+[table.bank_v2_get_tokens.columns]
+calldata = "The `calldata` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+content_address = "The `content_address` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+result = "The `result` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+reverted = "The `reverted` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `reverted = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `reverted = 'true'` or `CAST(reverted AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v2_get_tokens.footguns]
+bools = ["reverted"]
+
+[table.bank_v3_5__add_token]
+description = "`AddToken(address)` events emitted by the `bank_v3_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AddToken(address) event"
+
+[table.bank_v3_5__add_token.columns]
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v3_5__allocate_house_edge_amount]
+description = "`AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256)` events emitted by the `bank_v3_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256) event"
+
+[table.bank_v3_5__allocate_house_edge_amount.columns]
+bank = "The `bank` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+dividend = "The `dividend` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+partner = "The `partner` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+team = "The `team` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+treasury = "The `treasury` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v3_5__allocate_house_edge_amount.footguns]
+big_ints = [
+    "bank",
+    "dividend",
+    "partner",
+    "treasury",
+    "team",
+]
+overflows_dec = [
+    "bank",
+    "dividend",
+    "partner",
+    "treasury",
+    "team",
+]
+
+[table.bank_v3_5_get_tokens]
+description = "Result of the `bank_v3_5_get_tokens` call (selector `0x`). (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per sampled block this declaration fires at"
+
+[table.bank_v3_5_get_tokens.columns]
+calldata = "The `calldata` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+content_address = "The `content_address` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+result = "The `result` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+reverted = "The `reverted` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `reverted = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `reverted = 'true'` or `CAST(reverted AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v3_5_get_tokens.footguns]
+bools = ["reverted"]
+
+[table.bank_v3__add_token]
+description = "`AddToken(address)` events emitted by the `bank_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AddToken(address) event"
+
+[table.bank_v3__add_token.columns]
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v3__allocate_house_edge_amount]
+description = "`AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256)` events emitted by the `bank_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256) event"
+
+[table.bank_v3__allocate_house_edge_amount.columns]
+bank = "The `bank` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+dividend = "The `dividend` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+partner = "The `partner` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+team = "The `team` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+treasury = "The `treasury` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v3__allocate_house_edge_amount.footguns]
+big_ints = [
+    "bank",
+    "dividend",
+    "partner",
+    "treasury",
+    "team",
+]
+overflows_dec = [
+    "bank",
+    "dividend",
+    "partner",
+    "treasury",
+    "team",
+]
+
+[table.bank_v3_get_tokens]
+description = "Result of the `bank_v3_get_tokens` call (selector `0x`). (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per sampled block this declaration fires at"
+
+[table.bank_v3_get_tokens.columns]
+calldata = "The `calldata` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+content_address = "The `content_address` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+result = "The `result` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+reverted = "The `reverted` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `reverted = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `reverted = 'true'` or `CAST(reverted AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v3_get_tokens.footguns]
+bools = ["reverted"]
+
+[table.bank_v4__add_token]
+description = "`AddToken(address,bool)` events emitted by the `bank_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AddToken(address,bool) event"
+
+[table.bank_v4__add_token.columns]
+added = "The `added` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `added = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `added = 'true'` or `CAST(added AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v4__add_token.footguns]
+bools = ["added"]
+
+[table.bank_v4__allocate_house_edge_amount]
+description = "`AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256,address)` events emitted by the `bank_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per AllocateHouseEdgeAmount(address,uint256,uint256,uint256,uint256,uint256,address) event"
+
+[table.bank_v4__allocate_house_edge_amount.columns]
+affiliate = "The `affiliate` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+affiliateAddress = "The `affiliateAddress` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+bank = "The `bank` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+dividend = "The `dividend` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+team = "The `team` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+treasury = "The `treasury` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v4__allocate_house_edge_amount.footguns]
+big_ints = [
+    "bank",
+    "dividend",
+    "treasury",
+    "team",
+    "affiliate",
+]
+overflows_dec = [
+    "bank",
+    "dividend",
+    "treasury",
+    "team",
+    "affiliate",
+]
+
+[table.bank_v4_get_tokens]
+description = "Result of the `bank_v4_get_tokens` call (selector `0x`). (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per sampled block this declaration fires at"
+
+[table.bank_v4_get_tokens.columns]
+calldata = "The `calldata` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+content_address = "The `content_address` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+result = "The `result` bytes parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+reverted = "The `reverted` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `reverted = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `reverted = 'true'` or `CAST(reverted AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.bank_v4_get_tokens.footguns]
+bools = ["reverted"]
+
+[table.coin_toss_v1__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `coin_toss_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.coin_toss_v1__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v1__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.coin_toss_v1__place_bet]
+description = "`PlaceBet(uint256,address,address,bool)` events emitted by the `coin_toss_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,bool) event"
+
+[table.coin_toss_v1__place_bet.columns]
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v1__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = ["id"]
+overflows_dec = ["id"]
+bools = ["face"]
+
+[table.coin_toss_v1__roll]
+description = "`Roll(uint256,address,address,uint256,bool,bool,uint256)` events emitted by the `coin_toss_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,bool,bool,uint256) event"
+
+[table.coin_toss_v1__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `rolled = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `rolled = 'true'` or `CAST(rolled AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v1__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+bools = [
+    "face",
+    "rolled",
+]
+
+[table.coin_toss_v1__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `coin_toss_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.coin_toss_v1__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v2__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `coin_toss_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.coin_toss_v2__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v2__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.coin_toss_v2__place_bet]
+description = "`PlaceBet(uint256,address,address,bool)` events emitted by the `coin_toss_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,bool) event"
+
+[table.coin_toss_v2__place_bet.columns]
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v2__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = ["id"]
+overflows_dec = ["id"]
+bools = ["face"]
+
+[table.coin_toss_v2__roll]
+description = "`Roll(uint256,address,address,uint256,bool,bool,uint256)` events emitted by the `coin_toss_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,bool,bool,uint256) event"
+
+[table.coin_toss_v2__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `rolled = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `rolled = 'true'` or `CAST(rolled AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v2__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+bools = [
+    "face",
+    "rolled",
+]
+
+[table.coin_toss_v2__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `coin_toss_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.coin_toss_v2__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v3__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `coin_toss_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.coin_toss_v3__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v3__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.coin_toss_v3__place_bet]
+description = "`PlaceBet(uint256,address,address,bool)` events emitted by the `coin_toss_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,bool) event"
+
+[table.coin_toss_v3__place_bet.columns]
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v3__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = ["id"]
+overflows_dec = ["id"]
+bools = ["face"]
+
+[table.coin_toss_v3__roll]
+description = "`Roll(uint256,address,address,uint256,bool,bool,uint256)` events emitted by the `coin_toss_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,bool,bool,uint256) event"
+
+[table.coin_toss_v3__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `rolled = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `rolled = 'true'` or `CAST(rolled AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v3__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+bools = [
+    "face",
+    "rolled",
+]
+
+[table.coin_toss_v3__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `coin_toss_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.coin_toss_v3__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4_5__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `coin_toss_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.coin_toss_v4_5__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4_5__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.coin_toss_v4_5__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,bool)` events emitted by the `coin_toss_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,bool) event"
+
+[table.coin_toss_v4_5__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4_5__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+bools = ["face"]
+
+[table.coin_toss_v4_5__roll]
+description = "`Roll(uint256,address,address,uint256,bool,bool,uint256)` events emitted by the `coin_toss_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,bool,bool,uint256) event"
+
+[table.coin_toss_v4_5__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `rolled = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `rolled = 'true'` or `CAST(rolled AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4_5__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+bools = [
+    "face",
+    "rolled",
+]
+
+[table.coin_toss_v4_5__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `coin_toss_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.coin_toss_v4_5__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `coin_toss_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.coin_toss_v4__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.coin_toss_v4__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,bool)` events emitted by the `coin_toss_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,bool) event"
+
+[table.coin_toss_v4__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+bools = ["face"]
+
+[table.coin_toss_v4__roll]
+description = "`Roll(uint256,address,address,uint256,bool,bool,uint256)` events emitted by the `coin_toss_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,bool,bool,uint256) event"
+
+[table.coin_toss_v4__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `rolled = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `rolled = 'true'` or `CAST(rolled AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v4__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+bools = [
+    "face",
+    "rolled",
+]
+
+[table.coin_toss_v4__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `coin_toss_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.coin_toss_v4__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v5__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `coin_toss_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.coin_toss_v5__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v5__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.coin_toss_v5__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,bool,address,uint32,uint256,uint256)` events emitted by the `coin_toss_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,bool,address,uint32,uint256,uint256) event"
+
+[table.coin_toss_v5__place_bet.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+betCount = "The `betCount` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chargedVRFCost = "The `chargedVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopGain = "The `stopGain` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopLoss = "The `stopLoss` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v5__place_bet.footguns]
+big_ints = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+bools = ["face"]
+
+[table.coin_toss_v5__roll]
+description = "`Roll(uint256,address,address,uint256,bool,bool[],uint256)` events emitted by the `coin_toss_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,bool,bool[],uint256) event"
+
+[table.coin_toss_v5__roll.columns]
+face = "The `face` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `face = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `face = 'true'` or `CAST(face AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` bool[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+totalBetAmount = "The `totalBetAmount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v5__roll.footguns]
+big_ints = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+bools = ["face"]
+
+[table.coin_toss_v5__set_affiliate_house_edge]
+description = "`SetAffiliateHouseEdge(address,address,uint16,uint16)` events emitted by the `coin_toss_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetAffiliateHouseEdge(address,address,uint16,uint16) event"
+
+[table.coin_toss_v5__set_affiliate_house_edge.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.coin_toss_v5__set_house_edge]
+description = "`SetHouseEdge(address,uint16,uint16)` events emitted by the `coin_toss_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16,uint16) event"
+
+[table.coin_toss_v5__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v1__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `dice_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.dice_v1__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v1__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.dice_v1__place_bet]
+description = "`PlaceBet(uint256,address,address,uint8)` events emitted by the `dice_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint8) event"
+
+[table.dice_v1__place_bet.columns]
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v1__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = ["id"]
+overflows_dec = ["id"]
+
+[table.dice_v1__roll]
+description = "`Roll(uint256,address,address,uint256,uint8,uint8,uint256)` events emitted by the `dice_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint8,uint8,uint256) event"
+
+[table.dice_v1__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v1__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.dice_v1__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `dice_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.dice_v1__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v2__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `dice_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.dice_v2__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v2__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.dice_v2__place_bet]
+description = "`PlaceBet(uint256,address,address,uint8)` events emitted by the `dice_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint8) event"
+
+[table.dice_v2__place_bet.columns]
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v2__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = ["id"]
+overflows_dec = ["id"]
+
+[table.dice_v2__roll]
+description = "`Roll(uint256,address,address,uint256,uint8,uint8,uint256)` events emitted by the `dice_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint8,uint8,uint256) event"
+
+[table.dice_v2__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v2__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.dice_v2__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `dice_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.dice_v2__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v3__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `dice_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.dice_v3__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v3__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.dice_v3__place_bet]
+description = "`PlaceBet(uint256,address,address,uint8)` events emitted by the `dice_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint8) event"
+
+[table.dice_v3__place_bet.columns]
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v3__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = ["id"]
+overflows_dec = ["id"]
+
+[table.dice_v3__roll]
+description = "`Roll(uint256,address,address,uint256,uint8,uint8,uint256)` events emitted by the `dice_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint8,uint8,uint256) event"
+
+[table.dice_v3__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v3__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.dice_v3__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `dice_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.dice_v3__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4_5__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `dice_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.dice_v4_5__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4_5__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.dice_v4_5__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint8)` events emitted by the `dice_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint8) event"
+
+[table.dice_v4_5__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4_5__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+
+[table.dice_v4_5__roll]
+description = "`Roll(uint256,address,address,uint256,uint8,uint8,uint256)` events emitted by the `dice_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint8,uint8,uint256) event"
+
+[table.dice_v4_5__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4_5__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.dice_v4_5__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `dice_v4_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.dice_v4_5__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `dice_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.dice_v4__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.dice_v4__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint8)` events emitted by the `dice_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint8) event"
+
+[table.dice_v4__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+
+[table.dice_v4__roll]
+description = "`Roll(uint256,address,address,uint256,uint8,uint8,uint256)` events emitted by the `dice_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint8,uint8,uint256) event"
+
+[table.dice_v4__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v4__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.dice_v4__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `dice_v4` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.dice_v4__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v5__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `dice_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.dice_v5__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v5__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.dice_v5__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint8,address,uint32,uint256,uint256)` events emitted by the `dice_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint8,address,uint32,uint256,uint256) event"
+
+[table.dice_v5__place_bet.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+betCount = "The `betCount` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chargedVRFCost = "The `chargedVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopGain = "The `stopGain` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopLoss = "The `stopLoss` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v5__place_bet.footguns]
+big_ints = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+
+[table.dice_v5__roll]
+description = "`Roll(uint256,address,address,uint256,uint8,uint8[],uint256)` events emitted by the `dice_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint8,uint8[],uint256) event"
+
+[table.dice_v5__roll.columns]
+cap = "The `cap` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+totalBetAmount = "The `totalBetAmount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v5__roll.footguns]
+big_ints = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+
+[table.dice_v5__set_affiliate_house_edge]
+description = "`SetAffiliateHouseEdge(address,address,uint16,uint16)` events emitted by the `dice_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetAffiliateHouseEdge(address,address,uint16,uint16) event"
+
+[table.dice_v5__set_affiliate_house_edge.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.dice_v5__set_house_edge]
+description = "`SetHouseEdge(address,uint16,uint16)` events emitted by the `dice_v5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16,uint16) event"
+
+[table.dice_v5__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.freebet_v1__place_free_bet]
+description = "`PlaceFreeBet(uint256,address,address,uint256,address,uint256,address)` events emitted by the `freebet_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceFreeBet(uint256,address,address,uint256,address,uint256,address) event"
+
+[table.freebet_v1__place_free_bet.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+betId = "The `betId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+freeBetId = "The `freeBetId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+game = "The `game` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+player = "The `player` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.freebet_v1__place_free_bet.footguns]
+big_ints = [
+    "freeBetId",
+    "betId",
+    "amount",
+]
+overflows_dec = [
+    "freeBetId",
+    "betId",
+    "amount",
+]
+
+[table.keno_v1_5__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `keno_v1_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.keno_v1_5__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v1_5__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.keno_v1_5__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint40)` events emitted by the `keno_v1_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint40) event"
+
+[table.keno_v1_5__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v1_5__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+
+[table.keno_v1_5__roll]
+description = "`Roll(uint256,address,address,uint256,uint40,uint40,uint256)` events emitted by the `keno_v1_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint40,uint40,uint256) event"
+
+[table.keno_v1_5__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v1_5__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.keno_v1_5__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `keno_v1_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.keno_v1_5__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v1__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `keno_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.keno_v1__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v1__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.keno_v1__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint40)` events emitted by the `keno_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint40) event"
+
+[table.keno_v1__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v1__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+
+[table.keno_v1__roll]
+description = "`Roll(uint256,address,address,uint256,uint40,uint40,uint256)` events emitted by the `keno_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint40,uint40,uint256) event"
+
+[table.keno_v1__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v1__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.keno_v1__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `keno_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.keno_v1__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v2__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `keno_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.keno_v2__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v2__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.keno_v2__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint40,address,uint32,uint256,uint256)` events emitted by the `keno_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint40,address,uint32,uint256,uint256) event"
+
+[table.keno_v2__place_bet.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+betCount = "The `betCount` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chargedVRFCost = "The `chargedVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopGain = "The `stopGain` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopLoss = "The `stopLoss` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v2__place_bet.footguns]
+big_ints = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+
+[table.keno_v2__roll]
+description = "`Roll(uint256,address,address,uint256,uint40,uint40[],uint256)` events emitted by the `keno_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint40,uint40[],uint256) event"
+
+[table.keno_v2__roll.columns]
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint40[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+totalBetAmount = "The `totalBetAmount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v2__roll.footguns]
+big_ints = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+
+[table.keno_v2__set_affiliate_house_edge]
+description = "`SetAffiliateHouseEdge(address,address,uint16,uint16)` events emitted by the `keno_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetAffiliateHouseEdge(address,address,uint16,uint16) event"
+
+[table.keno_v2__set_affiliate_house_edge.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.keno_v2__set_house_edge]
+description = "`SetHouseEdge(address,uint16,uint16)` events emitted by the `keno_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16,uint16) event"
+
+[table.keno_v2__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v1__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `roulette_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.roulette_v1__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v1__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.roulette_v1__place_bet]
+description = "`PlaceBet(uint256,address,address,uint40)` events emitted by the `roulette_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint40) event"
+
+[table.roulette_v1__place_bet.columns]
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v1__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = ["id"]
+overflows_dec = ["id"]
+
+[table.roulette_v1__roll]
+description = "`Roll(uint256,address,address,uint256,uint40,uint8,uint256)` events emitted by the `roulette_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint40,uint8,uint256) event"
+
+[table.roulette_v1__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v1__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.roulette_v1__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `roulette_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.roulette_v1__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2_5__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `roulette_v2_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.roulette_v2_5__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2_5__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.roulette_v2_5__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint40)` events emitted by the `roulette_v2_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint40) event"
+
+[table.roulette_v2_5__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2_5__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+
+[table.roulette_v2_5__roll]
+description = "`Roll(uint256,address,address,uint256,uint40,uint8,uint256)` events emitted by the `roulette_v2_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint40,uint8,uint256) event"
+
+[table.roulette_v2_5__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2_5__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.roulette_v2_5__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `roulette_v2_5` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.roulette_v2_5__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256,uint256)` events emitted by the `roulette_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256,uint256) event"
+
+[table.roulette_v2__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chainlinkVRFCost = "The `chainlinkVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chainlinkVRFCost",
+]
+
+[table.roulette_v2__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint40)` events emitted by the `roulette_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint40) event"
+
+[table.roulette_v2__place_bet.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+vrfCost = "The `vrfCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2__place_bet.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "vrfCost",
+]
+
+[table.roulette_v2__roll]
+description = "`Roll(uint256,address,address,uint256,uint40,uint8,uint256)` events emitted by the `roulette_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint40,uint8,uint256) event"
+
+[table.roulette_v2__roll.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v2__roll.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "payout",
+]
+
+[table.roulette_v2__set_house_edge]
+description = "`SetHouseEdge(address,uint16)` events emitted by the `roulette_v2` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16) event"
+
+[table.roulette_v2__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v3__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `roulette_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.roulette_v3__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v3__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.roulette_v3__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint40,address,uint32,uint256,uint256)` events emitted by the `roulette_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint40,address,uint32,uint256,uint256) event"
+
+[table.roulette_v3__place_bet.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+betCount = "The `betCount` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chargedVRFCost = "The `chargedVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopGain = "The `stopGain` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopLoss = "The `stopLoss` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v3__place_bet.footguns]
+big_ints = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+
+[table.roulette_v3__roll]
+description = "`Roll(uint256,address,address,uint256,uint40,uint8[],uint256)` events emitted by the `roulette_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint40,uint8[],uint256) event"
+
+[table.roulette_v3__roll.columns]
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+numbers = "The `numbers` uint40 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+totalBetAmount = "The `totalBetAmount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v3__roll.footguns]
+big_ints = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+
+[table.roulette_v3__set_affiliate_house_edge]
+description = "`SetAffiliateHouseEdge(address,address,uint16,uint16)` events emitted by the `roulette_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetAffiliateHouseEdge(address,address,uint16,uint16) event"
+
+[table.roulette_v3__set_affiliate_house_edge.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.roulette_v3__set_house_edge]
+description = "`SetHouseEdge(address,uint16,uint16)` events emitted by the `roulette_v3` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16,uint16) event"
+
+[table.roulette_v3__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.weighted_game_v1__bet_refunded]
+description = "`BetRefunded(uint256,address,uint256)` events emitted by the `weighted_game_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per BetRefunded(uint256,address,uint256) event"
+
+[table.weighted_game_v1__bet_refunded.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+user = "The `user` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.weighted_game_v1__bet_refunded.footguns]
+reserved_words = ["user"]
+big_ints = [
+    "id",
+    "amount",
+]
+overflows_dec = [
+    "id",
+    "amount",
+]
+
+[table.weighted_game_v1__game_config_added]
+description = "`GameConfigAdded(uint32,uint64[],uint64[],uint32)` events emitted by the `weighted_game_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per GameConfigAdded(uint32,uint64[],uint64[],uint32) event"
+
+[table.weighted_game_v1__game_config_added.columns]
+configId = "The `configId` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+gameId = "The `gameId` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+multipliers = "The `multipliers` uint64[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+weights = "The `weights` uint64[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.weighted_game_v1__place_bet]
+description = "`PlaceBet(uint256,address,address,uint256,uint256,uint32,address,uint32,uint256,uint256)` events emitted by the `weighted_game_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PlaceBet(uint256,address,address,uint256,uint256,uint32,address,uint32,uint256,uint256) event"
+
+[table.weighted_game_v1__place_bet.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+betCount = "The `betCount` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+chargedVRFCost = "The `chargedVRFCost` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+configId = "The `configId` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopGain = "The `stopGain` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+stopLoss = "The `stopLoss` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.weighted_game_v1__place_bet.footguns]
+big_ints = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+overflows_dec = [
+    "id",
+    "amount",
+    "chargedVRFCost",
+    "stopGain",
+    "stopLoss",
+]
+
+[table.weighted_game_v1__roll]
+description = "`Roll(uint256,address,address,uint256,uint32,uint8[],uint256)` events emitted by the `weighted_game_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Roll(uint256,address,address,uint256,uint32,uint8[],uint256) event"
+
+[table.weighted_game_v1__roll.columns]
+configId = "The `configId` uint32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+id = "The `id` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+payout = "The `payout` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+receiver = "The `receiver` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rolled = "The `rolled` uint8[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+totalBetAmount = "The `totalBetAmount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.weighted_game_v1__roll.footguns]
+big_ints = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+overflows_dec = [
+    "id",
+    "totalBetAmount",
+    "payout",
+]
+
+[table.weighted_game_v1__set_affiliate_house_edge]
+description = "`SetAffiliateHouseEdge(address,address,uint16,uint16)` events emitted by the `weighted_game_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetAffiliateHouseEdge(address,address,uint16,uint16) event"
+
+[table.weighted_game_v1__set_affiliate_house_edge.columns]
+affiliate = "The `affiliate` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.weighted_game_v1__set_house_edge]
+description = "`SetHouseEdge(address,uint16,uint16)` events emitted by the `weighted_game_v1` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per SetHouseEdge(address,uint16,uint16) event"
+
+[table.weighted_game_v1__set_house_edge.columns]
+houseEdge = "The `houseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+previousHouseEdge = "The `previousHouseEdge` uint16 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+token = "The `token` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[view]
+
+# Authored views (views/*.sql) are described here so the MCP/`/schema` can render them:
+# [view.your_view_name]
+# description = "What this derivation computes."

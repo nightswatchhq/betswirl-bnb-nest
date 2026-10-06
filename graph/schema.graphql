@@ -1,0 +1,851 @@
+# Removed UserTokenDayData & UserOverchargedVRFCost
+
+# Common section
+type Store @entity {
+  id: ID! # 0
+  # PvH section
+  betTxnCount: BigInt! # [UPDATE] Total number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+
+  # PvP section
+  wagerAndJoinTxnCount: BigInt! # [NEW] Number of wager & join txns
+  seatCount: BigInt! # [NEW] Sum of all bought seats
+
+  #Common section
+  affiliateCount: BigInt! # [NEW] Total number of unique affiliate
+  userCount: BigInt! # [NEW] Total number of unique users
+}
+
+type User @entity {
+  id: Bytes! # `ACCOUNT`
+
+  # Common section
+  firstBetTimestamp: BigInt
+  lastBetTimestamp: BigInt
+  totalChargedVRFFees: BigInt! # [NEW] ETH value. Only used since V5 abi PvH games and v2 PvP games
+  consumedNativeVRFFees: BigInt! # [NEW] ETH value. Only used since V5 abi PvH games and v2 PvP games
+  consumedLinkVRFFees: BigInt! # [NEW] ETH value. Only used since V5 abi PvH games and v2 PvP games
+
+  # PvH section
+  betTxnCount: BigInt! # [NEW] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # [NEW] Number of won bet txs
+  maxMultiplier: BigDecimal! # [NEW]
+  userTokens: [UserToken!]! @derivedFrom(field: "user")
+  userGameTokens: [UserGameToken!]! @derivedFrom(field: "user")
+  bets: [Bet!]! @derivedFrom(field: "user") # [NEW] It replaces DiceBets, CoinTossBets, RouletteBets, KenoBets
+
+  #PvP section
+  wagerAndJoinTxnCount: BigInt! # [NEW] Number of wager & join txns
+  seatCount: BigInt! # [NEW] Sum of all bought seats
+  winSeatCount: BigInt! # [NEW] Sum of all won seats
+  pvpMaxMultiplier: BigDecimal! # [NEW]
+  pvpUserTokens: [PvPUserToken!]! @derivedFrom(field: "user")  # [NEW]
+  pvpUserGameTokens: [PvPUserGameToken!]! @derivedFrom(field: "user")  # [NEW]
+  pvpBets: [PvPBet!]! @derivedFrom(field: "user") # [NEW] It replaces RussianRouletteBets & CointossBattleBets
+
+  leaderboardAffiliatedUsers: [LeaderboardAffiliateUser!]! @derivedFrom(field: "user")
+
+}
+
+type Affiliate @entity { # [NEW]
+  id: Bytes! # `ACCOUNT`
+  firstBetTimestamp: BigInt
+  lastBetTimestamp: BigInt
+  userCount: BigInt!
+  affiliatedUsers: [AffiliateUser!]! @derivedFrom(field: "affiliate")
+
+  # PvH section
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  totalFreebetCount: BigInt!
+  bets: [Bet!]! @derivedFrom(field: "affiliate")
+  affiliatedGames: [AffiliateGame!]! @derivedFrom(field: "affiliate")
+  affiliatedTokens: [AffiliateToken!]! @derivedFrom(field: "affiliate")
+  affiliatedGameTokens: [AffiliateGameToken!]! @derivedFrom(field: "affiliate")
+  affiliatedUserTokens: [AffiliateUserToken!]! @derivedFrom(field: "affiliate")
+  affiliatedUserGames: [AffiliateUserGame!]! @derivedFrom(field: "affiliate")
+
+  # PvP section
+  wagerAndJoinTxnCount: BigInt! # [NEW] Number of wager & join txns
+  seatCount: BigInt! # [NEW] Sum of all bought seats
+  winSeatCount: BigInt! # [NEW] Sum of all won seats
+  pvpBets: [PvPBet!]! @derivedFrom(field: "affiliate")
+  pvpAffiliatedTokens: [PvPAffiliateToken!]! @derivedFrom(field: "affiliate")
+  pvpAffiliatedGameTokens: [PvPAffiliateGameToken!]! @derivedFrom(field: "affiliate")
+  pvpAffiliatedUserTokens: [PvPAffiliateUserToken!]! @derivedFrom(field: "affiliate")
+
+  # Leaderboard section
+  totalLeaderboards: BigInt!
+  leaderboards: [Leaderboard!] @derivedFrom(field: "affiliate")
+  leaderboardAffiliatedUsers: [LeaderboardAffiliateUser!]! @derivedFrom(field: "affiliate")
+  leaderboardAffiliatedUserTokens: [LeaderboardAffiliateUserToken!]! @derivedFrom(field: "affiliate")
+  leaderboardAffiliatedTokens: [LeaderboardAffiliateToken!]! @derivedFrom(field: "affiliate")
+
+  # Day data section
+  dayDataLength: Int!
+  dayData: [AffiliateDayData!] @derivedFrom(field: "affiliate")
+}
+
+type AffiliateDayData @entity { # [NEW]
+  id: ID! # `AFFILIATE-DAYID`
+  affiliate: Affiliate!
+
+  date: Int!
+  userCount: BigInt!
+  newUserCount: BigInt!
+
+  # PvH section
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+
+  # Freebet section
+  totalFreebetCount: BigInt!
+
+}
+
+
+type AffiliateUser @entity { # [NEW]
+  id: ID! # `AFFILIATE-USER`
+  affiliate: Affiliate!
+  user: User!
+  firstBetTimestamp: BigInt
+  lastBetTimestamp: BigInt
+
+  # PvH section
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  isFirstBetAFreebet: Boolean!
+  firstFreebetTimestamp: BigInt
+  lastFreebetTimestamp: BigInt
+  totalFreebetCount: BigInt!
+  affiliateUserTokens: [AffiliateUserToken!]! @derivedFrom(field: "affiliateUser")
+  affiliateUserGames: [AffiliateUserGame!]! @derivedFrom(field: "affiliateUser")
+  dayDataLength: Int!
+  dayData: [AffiliateUserDayData!] @derivedFrom(field: "affiliateUser")
+
+  # PvP section
+  wagerAndJoinTxnCount: BigInt! # [NEW] Number of wager & join txns
+  seatCount: BigInt! # [NEW] Sum of all bought seats
+  winSeatCount: BigInt! # [NEW] Sum of all won seats
+  pvpAffiliateUserTokens: [PvPAffiliateUserToken!]! @derivedFrom(field: "affiliateUser")
+
+}
+
+type AffiliateUserDayData @entity {
+  id: ID! # `AFFILIATE-USER-DAYID`
+  affiliateUser: AffiliateUser!
+  date: Int!
+
+  betTxnCount: BigInt!
+}
+
+# PvH section
+type Token @entity {
+  id: Bytes! # address
+  symbol: String!
+  name: String!
+  decimals: Int!
+
+  betTxnCount: BigInt! # [UPDATE] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # [UPDATE]
+  userCount: BigInt! # [UPDATE]
+  totalWagered: BigInt! # [UPDATE]
+  totalPayout: BigInt! # [UPDATE]
+  dividendAmount: BigInt!
+  bankAmount: BigInt!
+  partnerAmount: BigInt!
+  affiliateAmount: BigInt! # [NEW]
+  treasuryAmount: BigInt!
+  teamAmount: BigInt!
+
+  balancesDayDataLength: Int! # [UPDATE]
+  balancesDayData: [TokenBalancesDayData!] @derivedFrom(field: "token")
+
+  usersTokens: [UserToken!]! @derivedFrom(field: "token")
+}
+type TokenBalancesDayData @entity {
+  id: ID! # `TOKEN-DAYID`
+  token: Token!
+
+  date: Int!
+  balance: BigInt!
+}
+
+type Game @entity {
+  id: ID! # `GAME`
+
+  betTxnCount: BigInt! # [UPDATE] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # [UPDATE]
+  userCount: BigInt! # [UPDATE]
+
+  # Freebet section
+  totalFreebetCount: BigInt!
+
+  gameTokens: [GameToken!] @derivedFrom(field: "game")
+  userGameTokens: [UserGameToken!] @derivedFrom(field: "game")
+  affiliateGames: [AffiliateGame!] @derivedFrom(field: "game")
+}
+
+
+type GameToken @entity {
+  id: ID! # `GAME-TOKEN`
+  token: Token!
+  game: Game!
+
+  houseEdge: Int!
+
+  betTxnCount: BigInt! # [UPDATE] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # [UPDATE]
+  userCount: BigInt! # [UPDATE]
+  totalWagered: BigInt! # [UPDATE]
+  totalPayout: BigInt! # [UPDATE]
+  dayDataLength: Int! # [UPDATE]
+  dayData: [GameTokenDayData!] @derivedFrom(field: "gameToken")
+}
+type GameTokenDayData @entity {
+  id: ID! # `GAME-TOKEN-DAYID`
+  gameToken: GameToken!
+
+  date: Int!
+
+  betTxnCount: BigInt! # [UPDATE] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # [UPDATE]
+  userCount: BigInt! # [UPDATE]
+  totalWagered: BigInt! # [UPDATE]
+  totalPayout: BigInt! # [UPDATE]
+
+  totalChargedVRFFees: BigInt! # [NEW] ETH value, only used since V5 abi games
+  consumedNativeVRFFees: BigInt! # [NEW] ETH value, only used since V5 abi games
+  consumedLinkVRFFees: BigInt! # [NEW] LINK value, only used since V5 abi games
+}
+type UserGameToken @entity { # [NEW]
+  id: ID! # `ACCOUNT-GAME-TOKEN`
+  user: User!
+  token: Token!
+  game: Game!
+
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+
+  dayDataLength: Int! # [UPDATE]
+  dayData: [UserGameTokenDayData!] @derivedFrom(field: "userGameToken")
+}
+
+type UserGameTokenDayData @entity { # [NEW]
+  id: ID! # `ACCOUNT-GAME-TOKEN-DAYID`
+  userGameToken: UserGameToken!
+
+  date: Int!
+
+  betTxnCount: BigInt!
+}
+
+type Bet @entity { # [NEW] It replaces DiceBet, CoinTossBet, KenoBet & RouletteBet
+  # From PlaceBet event
+  id: ID!
+  gameId: String! # [NEW]
+  gameAddress: Bytes! # [NEW]
+  user: User!
+  gameToken: GameToken!
+  affiliate: Affiliate # [NEW]
+  inputValue: BigInt! # [NEW] It replaces cap, face & numbers
+  betAmount: BigInt # [UPDATE] previously "amount". From Roll event for v1 abi games
+  betCount: BigInt! # [NEW]
+  stopLoss: BigInt! # [NEW]
+  stopGain: BigInt! # [NEW]
+  houseEdge: Int! # [UPDATE] compulsory + set when PlaceBet event is received now
+  betTimestamp: BigInt! # [UPDATE]
+  resolved: Boolean!
+  refunded: Boolean! # [NEW]
+  chargedVRFFees: BigInt! # [NEW] ETH value, only used since V5 abi games
+  betTxnHash: Bytes!
+
+  # From PlaceFreeBet event
+  isFreebet: Boolean! # [NEW]
+  freebetId: BigInt # [NEW]
+
+  # From Roll event
+  totalBetAmount: BigInt # [NEW]
+  payout: BigInt
+  payoutMultiplier: BigDecimal # [NEW]
+  rollTxnHash: Bytes
+  rolled: [BigInt!] # [UPDATE] It is now an array
+  rollTimestamp: BigInt # [NEW]
+
+  # From RandomWordsFulfilled event
+  consumedNativeVRFFees: BigInt # [NEW] ETH value, only used since V5 abi games
+  consumedLinkVRFFees: BigInt # [NEW] LINK value, only used since V5 abi games
+
+  #Links to potential bet configs
+  kenoBet: KenoBet @derivedFrom(field: "bet")
+  weightedGameBet: WeightedGameBet @derivedFrom(field: "bet")
+}
+
+# Temporary entity used to bind a bet with house edge amounts
+type BetHouseEdgeAmount @entity { # [NEW]
+  id: ID! # `TXHASH-AFFILIATE-TOKEN-ORDER`
+  dividendAmount: BigInt!
+  bankAmount: BigInt!
+  partnerAmount: BigInt!
+  affiliateAmount: BigInt!
+  treasuryAmount: BigInt!
+  teamAmount: BigInt!
+  consumed: Boolean!
+}
+
+# Wheel, Plinko, etc
+type WeightedGameBet @entity(immutable:true) { # [NEW]
+  id: ID!
+  bet: Bet!
+  config: WeightedGameConfig!
+}
+
+type WeightedGameConfig @entity(immutable:true) { # [NEW]
+  # From GameConfigAdded event
+  id: ID!
+  creator: User!
+  creationTimestamp: BigInt!
+  multipliers: [BigInt!]!
+  weights: [BigInt!]!
+  weightedGameId: BigInt! # ID use on chain to separate weighted games (1, 2, etc)
+  gameId: String! # ID use off-chain to identify weighted games (WHEEL, PLINKO, etc)
+  EV: BigDecimal!
+
+  bets: [WeightedGameBet!]! @derivedFrom(field: "config")
+}
+
+type KenoBet @entity(immutable:true)  { # [NEW]
+  id: ID!
+  bet: Bet!
+  config: KenoConfig!
+}
+
+type KenoConfig @entity(immutable:true) { # [NEW]
+  # From TokenConfigUpdated event
+  id: ID! # `TOKEN-INDEX`
+  configHub: KenoConfigHub!
+
+  creationTimestamp: BigInt!
+  biggestNumber: BigInt!
+  maxNumbers: BigInt!
+}
+
+type KenoConfigHub @entity { # [NEW]
+  id: Bytes! # `TOKEN`
+  token: Token!
+
+  configCount: Int!
+
+  configs: [KenoConfig!]! @derivedFrom(field: "configHub")
+}
+
+type UserToken @entity {
+  id: ID! # `USER-TOKEN`
+  user: User!
+  token: Token!
+
+  betTxnCount: BigInt! # [UPDATE] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # # [UPDATE] Number of won bet txs
+  totalWagered: BigInt! # [UPDATE]
+  totalPayout: BigInt! # [UPDATE] Total payout amount
+  maxPayout: BigInt! # [NEW]
+}
+
+type AffiliateGame @entity {
+  id: ID! # `AFFILIATE-GAME`
+  affiliate: Affiliate!
+  game: Game!
+
+  userCount: BigInt! # [UPDATE]
+  betTxnCount: BigInt! # [UPDATE] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # [UPDATE] Number of won bet txs
+
+  # Freebet section
+  totalFreebetCount: BigInt!
+
+  # Day data section
+  dayDataLength: Int!
+  dayData: [AffiliateGameDayData!] @derivedFrom(field: "affiliateGame")
+
+  affiliateGameTokens: [AffiliateGameToken!] @derivedFrom(field: "affiliateGame")
+  affiliateUserGames: [AffiliateUserGame!] @derivedFrom(field: "affiliateGame")
+}
+
+type AffiliateGameDayData @entity {
+  id: ID! # `AFFILIATE-GAME-DAYID`
+  affiliateGame: AffiliateGame!
+
+  date: Int!
+
+  betTxnCount: BigInt! # [UPDATE] Number of bet txs
+  betCount: BigInt! # [NEW] Sum of betCount
+  winTxnCount: BigInt! # [UPDATE] Number of won bet txs
+  userCount: BigInt! # [UPDATE]
+  newUserCount: BigInt! # [NEW]
+
+  # Freebet section
+  totalFreebetCount: BigInt!
+}
+
+type AffiliateToken @entity { # [NEW]
+  id: ID! # `AFFILIATE-TOKEN`
+  affiliate: Affiliate!
+  token: Token!
+
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  userCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  totalEarned: BigInt!
+
+  # Freebet analytics
+  totalFreebetCount: BigInt!
+  totalFreebetWagered: BigInt!
+
+  # Day data section
+  dayDataLength: Int!
+  dayData: [AffiliateTokenDayData!] @derivedFrom(field: "affiliateToken")
+
+  affiliateUserTokens: [AffiliateUserToken!]! @derivedFrom(field: "affiliateToken")
+  affiliateGameTokens: [AffiliateGameToken!]! @derivedFrom(field: "affiliateToken")
+}
+
+type AffiliateTokenDayData @entity {
+  id: ID! # `AFFILIATE-TOKEN-DAYID`
+  affiliateToken: AffiliateToken!
+
+  date: Int!
+
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  totalEarned: BigInt!
+  userCount: BigInt! # [UPDATE]
+  newUserCount: BigInt! # [NEW]
+
+  # Freebet section
+  totalFreebetCount: BigInt!
+  totalFreebetWagered: BigInt!
+}
+
+type AffiliateUserToken @entity { # [NEW]
+  id: ID! # `AFFILIATE-USER-TOKEN`
+  affiliate: Affiliate!
+  affiliateUser: AffiliateUser!
+  affiliateToken: AffiliateToken!
+
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  totalEarned: BigInt!
+
+  # Freebet analytics
+  totalWageredBeforeFirstFreebet: BigInt! # freebets wagered excluded
+  totalWageredAfterFirstFreebet: BigInt! # freebets wagered excluded
+  totalWageredAfterLastFreebet: BigInt! # freebets wagered excluded
+  totalFreebetCount: BigInt!
+  totalFreebetWagered: BigInt!
+
+  dayDataLength: Int!
+  dayData: [AffiliateUserTokenDayData!] @derivedFrom(field: "affiliateUserToken")
+}
+
+type AffiliateUserTokenDayData @entity {
+  id: ID! # `AFFILIATE-USER-TOKEN-DAYID`
+  affiliateUserToken: AffiliateUserToken!
+
+  date: Int!
+
+  betTxnCount: BigInt!
+}
+
+type AffiliateUserGame @entity { # [NEW]
+  id: ID! # `AFFILIATE-USER-GAME`
+  affiliate: Affiliate!
+  affiliateUser: AffiliateUser!
+  affiliateGame: AffiliateGame!
+
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+
+  # Freebet analytics
+  totalFreebetCount: BigInt!
+
+  # Day data section
+  dayDataLength: Int!
+  dayData: [AffiliateUserGameDayData!] @derivedFrom(field: "affiliateUserGame")
+}
+
+type AffiliateUserGameDayData @entity {
+  id: ID! # `AFFILIATE-USER-GAME-DAYID`
+  affiliateUserGame: AffiliateUserGame!
+
+  date: Int!
+
+  betTxnCount: BigInt!
+}
+
+type AffiliateGameToken @entity { # [NEW]
+  id: ID! # `AFFILIATE-GAME-TOKEN`
+  affiliate: Affiliate!
+  affiliateGame: AffiliateGame!
+  affiliateToken: AffiliateToken!
+
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  houseEdge: Int
+  totalEarned: BigInt!
+
+  # Freebet analytics
+  totalFreebetCount: BigInt!
+  totalFreebetWagered: BigInt!
+
+  # Day data section
+  dayDataLength: Int!
+  dayData: [AffiliateGameTokenDayData!] @derivedFrom(field: "affiliateGameToken")
+}
+
+type AffiliateGameTokenDayData @entity {
+  id: ID! # `AFFILIATE-GAME-TOKEN-DAYID`
+  affiliateGameToken: AffiliateGameToken!
+
+  date: Int!
+
+  betTxnCount: BigInt!
+  betCount: BigInt!
+  winTxnCount: BigInt!
+  userCount: BigInt! # [UPDATE]
+  newUserCount: BigInt! # [NEW]
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  totalEarned: BigInt!
+
+
+  # Freebet section
+  totalFreebetCount: BigInt!
+  totalFreebetWagered: BigInt!
+}
+
+type AffiliateUserGameTokenDayData @entity {
+  id: ID! # `AFFILIATE-USER-GAME-TOKEN-DAYID`
+  #affiliateUserGameToken: AffiliateUserGameToken!
+
+  date: Int!
+
+  betTxnCount: BigInt!
+}
+# PvP section
+type PvPToken @entity {
+  id: Bytes! # address
+  symbol: String!
+  name: String!
+  decimals: Int!
+
+  wagerAndJoinTxnCount: BigInt! # [NEW] Number of wager & join txns
+  seatCount: BigInt! # [NEW] Sum of all bought seats
+  uniqueBets: BigInt!
+  userCount: BigInt! # [UPDATE]
+  totalWagered: BigInt! # [UPDATE]
+  totalPayout: BigInt! # [UPDATE]
+
+  dividendAmount: BigInt!
+  treasuryAmount: BigInt!
+  teamAmount: BigInt!
+  initiatorAmount: BigInt!
+  affiliateAmount: BigInt! # [NEW]
+}
+
+type PvPUserToken @entity { # [NEW]
+  id: ID! # `USER-TOKEN`
+  user: User!
+  token: PvPToken!
+
+  wagerAndJoinTxnCount: BigInt!
+  seatCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  maxPayout: BigInt!
+}
+
+type PvPBet @entity { # [NEW] Common base between RussianRouletteBet & CoinTossBattleBet
+  id: ID! # "gameAddress-betId"
+  betId: BigInt! # [NEW]
+  user: User!
+  gameId: String! # [NEW]
+  gameToken: PvPGameToken!
+  gameAddress: Bytes! # [NEW]
+  affiliate: Affiliate! # [NEW]
+
+  betTimestamp: BigInt! # [UPDATE]
+  resolved: Boolean!
+  canceled: Boolean! # [UPDATE]
+  refunded: Boolean! # [UPDATE]
+
+  # From PlaceBet event
+  betAmount: BigInt! # [UPDATE] previously "amount"
+  opponents: [Bytes!]!
+  houseEdge: Int!
+  chargedVRFFees: BigInt! # [NEW] ETH value, only used since V2 PvP abi games
+
+
+  # From Joined event
+  seats: [Bytes!]!
+  joinTxns: [PvPGameJoinTransaction!]! @derivedFrom(field: "bet")
+  pot: BigInt!
+
+  # From BetLaunched event
+  betLaunchedTxnHash: Bytes # [UPDATE]
+  betLaunchedTimestamp: BigInt # [NEW]
+  vrfRequest: PvPVRFRequest # [NEW] only used since V2 PvP abi games
+
+  # From Roll event
+  payout: BigInt
+  rollTxnHash: Bytes
+  rollTimestamp: BigInt # [UPDATE]
+
+  # From RandomWordsFulfilled event
+  consumedNativeVRFFees: BigInt # [NEW] ETH value, only used since V2 PvP abi games
+  consumedLinkVRFFees: BigInt # [NEW] LINK value, only used since V2 PvP abi games
+}
+
+# Utility entity used to help to track PvP VRF consumed fees
+type PvPVRFRequest @entity(immutable:true) { # [NEW]
+  id: ID! # VRF request ID
+  requestTimestamp: BigInt!
+  bet: PvPBet!
+}
+
+type RussianRouletteBet @entity {
+  id: ID! # bet id
+  bet: PvPBet
+
+  # From PlaceBet event
+  deathRatio: Int!
+  startsAt: BigInt!
+  maxSeats: Int!
+
+  # From GameResolved event
+  gameResolvedTxnHash: Bytes
+  killedSeatsCount: Int
+
+  # From Roll event
+  killedSeats: [Bytes!]
+
+}
+type CoinTossBattleBet @entity {
+  id: ID! # bet id
+  bet: PvPBet
+
+  # From PlaceBet event
+  face: Boolean!
+
+  # From Roll event
+  rolled: Boolean
+  winner: Bytes
+}
+type PvPGameJoinTransaction @entity(immutable:true) {
+  id: Bytes! # hash
+  user: User!
+  seatCount: Int!
+  bet: PvPBet!
+}
+
+type PvPGameToken @entity {
+  id: ID! # `GAME-TOKEN`
+  token: PvPToken!
+  game: String!
+
+  houseEdge: Int!
+
+  wagerAndJoinTxnCount: BigInt! # [UPDATE]
+  seatCount: BigInt! # [NEW]
+  uniqueBets: BigInt!
+  userCount: BigInt! # [UPDATE]
+  totalWagered: BigInt! # [UPDATE]
+  totalPayout: BigInt! # [UPDATE]
+
+  dayDataLength: Int!
+  dayData: [PvPGameTokenDayData!] @derivedFrom(field: "gameToken")
+
+  pvpUserGameTokens: [PvPUserGameToken!] @derivedFrom(field: "gameToken")
+}
+type PvPGameTokenDayData @entity {
+  id: ID! # `GAME-TOKEN-DAYID`
+  gameToken: PvPGameToken!
+
+  date: Int!
+
+  wagerAndJoinTxnCount: BigInt! # [UPDATE]
+  seatCount: BigInt! # [NEW] Sum of betCount
+  userCount: BigInt! # [UPDATE]
+  totalWagered: BigInt! # [UPDATE]
+  totalPayout: BigInt! # [UPDATE]
+
+  totalChargedVRFFees: BigInt! # [NEW] ETH value, only used since V2 abi games
+  consumedNativeVRFFees: BigInt! # [NEW] ETH value, only used since V2 abi games
+  consumedLinkVRFFees: BigInt! # [NEW] LINK value, only used since V2 abi games
+}
+
+type PvPUserGameToken @entity { # [NEW]
+  id: ID! # `ACCOUNT-GAME-TOKEN`
+  user: User!
+  gameToken: PvPGameToken!
+
+  wagerAndJoinTxnCount: BigInt!
+  seatCount: BigInt!
+  uniqueBets: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+
+  dayDataLength: Int!
+  dayData: [PvPUserGameTokenDayData!] @derivedFrom(field: "userGameToken")
+}
+
+type PvPUserGameTokenDayData @entity { # [NEW]
+  id: ID! # `ACCOUNT-GAME-TOKEN-DAYID`
+  userGameToken: PvPUserGameToken!
+
+  date: Int!
+
+  wagerAndJoinTxnCount: BigInt!
+}
+
+type PvPAffiliateToken @entity { # [NEW]
+  id: ID! # `AFFILIATE-TOKEN`
+  affiliate: Affiliate!
+  token: PvPToken!
+
+  wagerAndJoinTxnCount: BigInt!
+  seatCount: BigInt!
+  winSeatCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  totalEarned: BigInt!
+
+  affiliateUserTokens: [PvPAffiliateUserToken!]! @derivedFrom(field: "affiliateToken")
+  affiliateGameTokens: [PvPAffiliateGameToken!]! @derivedFrom(field: "affiliateToken")
+}
+
+type PvPAffiliateUserToken @entity { # [NEW]
+  id: ID! # `AFFILIATE-USER-TOKEN`
+  affiliate: Affiliate!
+  affiliateUser: AffiliateUser!
+  affiliateToken: PvPAffiliateToken!
+
+  wagerAndJoinTxnCount: BigInt!
+  seatCount: BigInt!
+  winSeatCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+}
+
+type PvPAffiliateGameToken @entity { # [NEW]
+  id: ID! # `AFFILIATE-GAME-TOKEN`
+  affiliate: Affiliate!
+  game: String!
+  affiliateToken: PvPAffiliateToken!
+
+  wagerAndJoinTxnCount: BigInt!
+  seatCount: BigInt!
+  winSeatCount: BigInt!
+  totalWagered: BigInt!
+  totalPayout: BigInt!
+  totalEarned: BigInt!
+  houseEdge: Int
+}
+
+# Leaderboard section
+
+type LeaderboardToken @entity(immutable:true) {
+  id: Bytes! # address
+  symbol: String!
+  name: String!
+  decimals: Int!
+
+  leaderboards: [Leaderboard!]! @derivedFrom(field: "token")
+  leaderboardAffiliatedTokens: [LeaderboardAffiliateToken!]! @derivedFrom(field: "token")
+}
+
+enum LeaderboardStatus {
+  Created
+  #PENDING => startsAt is not on chain
+  #ENDED => calculated status
+  Finalized
+  #EXPIRED => calculated status
+  Canceled
+}
+
+type Leaderboard @entity {
+  id: ID!
+  affiliate: Affiliate!
+  token: LeaderboardToken!
+  leaderboardAffiliateToken: LeaderboardAffiliateToken!
+  winners: [Bytes!]
+  endTimestamp: BigInt!
+  expirationTime: BigInt!
+  shares: [BigInt!]!
+  claimedShares: [BigInt!]!
+  totalShares: BigInt!
+  status: LeaderboardStatus!
+
+  totalClaimedShares: BigInt!
+  totalUnclaimedShares: BigInt! # = shares not claimed by the winners AND claimed by the affiliate
+}
+
+type LeaderboardAffiliateToken @entity {
+  id: ID! # `AFFILIATE-LEADERBOARDTOKEN`
+  affiliate: Affiliate!
+  token: LeaderboardToken!
+
+  totalSharesDistributed: BigInt!
+  totalSharesClaimed: BigInt!
+  totalLeaderboards: BigInt!
+
+  leaderboards: [Leaderboard!] @derivedFrom(field: "leaderboardAffiliateToken")
+  leaderboardAffiliateUserTokens: [LeaderboardAffiliateUserToken!] @derivedFrom(field: "leaderboardAffiliateToken")
+
+}
+
+type LeaderboardAffiliateUser @entity {
+  id: ID! # `AFFILIATE-USER`
+  affiliate: Affiliate!
+  user: User!
+
+  totalLeaderboardsWonCount: BigInt!
+
+  leaderboardAffiliateUserTokens: [LeaderboardAffiliateUserToken!] @derivedFrom(field: "leaderboardAffiliateUser")
+}
+
+type LeaderboardAffiliateUserToken @entity {
+    id: ID! # `AFFILIATE-USER-LEADERBOARDTOKEN`
+  affiliate: Affiliate!
+  leaderboardAffiliateUser: LeaderboardAffiliateUser!
+  leaderboardAffiliateToken: LeaderboardAffiliateToken!
+
+  totalLeaderboardSharesWon: BigInt!
+  totalLeaderboardSharesClaimed: BigInt!
+}
+

@@ -1,0 +1,728 @@
+{
+ "data": {
+  "bets": [
+   {
+    "id": "76638689549681392230211952836015327835861780247003890638860510630286441866120",
+    "gameId": "CoinToss",
+    "gameAddress": "0x8bae4264c83b2dcc58c5aca33e4414a0cbad2ebf",
+    "user": {
+     "address": "0x11c1b8b20adca665dfc6f7d632d543ca0bc87314"
+    },
+    "gameToken": {
+     "id": "CoinToss-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "0",
+    "betAmount": "2500000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655385616",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0xb8a36775536050c99f6263cffe1a43de41a382ce01087add0370ca37436044f4",
+    "rollTotalBetAmount": "2500000000000000000000",
+    "payout": "2500000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x5819b33216f97703c754c085c6457abc82af8a9e8a602dbe1e2a8ffdaff98364",
+    "encodedRolled": null,
+    "rollTimestamp": "1655388465",
+    "weightedGameBet": null
+   },
+   {
+    "id": "5721842437499978258265910399295378680604330459531893180850012871772845384598",
+    "gameId": "Dice",
+    "gameAddress": "0xcfe6e9c9452381d68186a511bb78450fdb43a75d",
+    "user": {
+     "address": "0x15145d539f9c1fc5680fe6b23b40b94bdfecd468"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "58",
+    "betAmount": "75000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655375182",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x97f916c655ce14e8012e266e86807f0483b81c3a3e5a993e93e9246c482a24aa",
+    "rollTotalBetAmount": "75000000000000000000000",
+    "payout": "75000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x26bb8efe17785d7044d6a25e13332452c6eefe065ee924d26ed77216d5063ba7",
+    "encodedRolled": null,
+    "rollTimestamp": "1655394885",
+    "weightedGameBet": null
+   },
+   {
+    "id": "109292543137293918659911876906755651856052258089721714588363076140088767997852",
+    "gameId": "Dice",
+    "gameAddress": "0xcfe6e9c9452381d68186a511bb78450fdb43a75d",
+    "user": {
+     "address": "0x58b01f059da0286f415358a038a49cd5172d0de5"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "84",
+    "betAmount": "2500000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655328931",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x02e8125ac99024e86c0ebe925a283302547e3e68138ebb680ba676085aa0f12f",
+    "rollTotalBetAmount": "2500000000000000000000",
+    "payout": "2500000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0xdd3b3286a9ee5737d20ee53befe611fa08505d454bbe231a5e896cb5bcd6f97c",
+    "encodedRolled": null,
+    "rollTimestamp": "1655334348",
+    "weightedGameBet": null
+   },
+   {
+    "id": "73578882320547729597443701782318280263955076331243492289082029175585561104460",
+    "gameId": "Dice",
+    "gameAddress": "0xcfe6e9c9452381d68186a511bb78450fdb43a75d",
+    "user": {
+     "address": "0xed68a71a035a8cf74f92b6063fca4fde33f06df8"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "80",
+    "betAmount": "5500000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655328928",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x1b357c550636aa26f03eabf432b7a366edb9365ea6eb133095beb909f349d826",
+    "rollTotalBetAmount": "5500000000000000000000",
+    "payout": "5500000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x08bc6e3f2f49ce0ab964dfa0b6cdc9a7b336d9b12a779895a6d85a2b64c48e38",
+    "encodedRolled": null,
+    "rollTimestamp": "1655329507",
+    "weightedGameBet": null
+   },
+   {
+    "id": "22707332026238446054203063714262564700951714720513570791743413598874043757934",
+    "gameId": "Dice",
+    "gameAddress": "0xcfe6e9c9452381d68186a511bb78450fdb43a75d",
+    "user": {
+     "address": "0x9bb5001293620e7276fa80338cabebab0e57d455"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "16",
+    "betAmount": "10000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655320717",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0xc18086421090e28c213bf3e20de5e8ff83f970c67a87aeaef5bf86e9fb3bbb97",
+    "rollTotalBetAmount": "10000000000000000000000",
+    "payout": "10000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0xeff2b9b5415159464334875263bb0f27c98984eab3e46777ac96e0c9e836afa2",
+    "encodedRolled": null,
+    "rollTimestamp": "1655322182",
+    "weightedGameBet": null
+   },
+   {
+    "id": "71298924671101797912220353720872807193983423098223294543582613998723503084999",
+    "gameId": "Dice",
+    "gameAddress": "0xcfe6e9c9452381d68186a511bb78450fdb43a75d",
+    "user": {
+     "address": "0xdeeac80cc3dd68fedac3c7a9982fbf5cbfb02003"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "30",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655267724",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0xa0c7fbfd70f793727d2c1da90d31bada5534772fa22606faeddd22ad0302b194",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x3c11f40fe828e7400e4ead4aa585e0e57312952afc63b320ac632e5351d0420e",
+    "encodedRolled": null,
+    "rollTimestamp": "1655267973",
+    "weightedGameBet": null
+   },
+   {
+    "id": "55555658489211412909975388559468155077979158166247977358864585636272151016022",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0x66c4d693aca1cd6da4954b70efa95a2194ce7052"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "23",
+    "betAmount": "7500000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655212856",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x7881f5a67aeaff92fb94e9b65a6650b6a926a7c1b022d2bafdeac75533dd644e",
+    "rollTotalBetAmount": "7500000000000000000000",
+    "payout": "7500000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x62b9e021130787fb6485cf48e4fe9523ca136593d00e3fc84faa0d736555e3e4",
+    "encodedRolled": null,
+    "rollTimestamp": "1655216532",
+    "weightedGameBet": null
+   },
+   {
+    "id": "82773824096738156220906278258330597609095493694626827654056705275368067563449",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0xc120f08147427c6bbf9d86ea0bd8699606a87684"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "36",
+    "betAmount": "30000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655189335",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x5aa9fd901f62f9efa23ffb193b6acee27b5338bc44563e14ab59d36960330072",
+    "rollTotalBetAmount": "30000000000000000000000",
+    "payout": "30000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0xade1d745c30112e0fd976eb409e6a443efe859399bca77e829b76f749cc4009f",
+    "encodedRolled": null,
+    "rollTimestamp": "1655226788",
+    "weightedGameBet": null
+   },
+   {
+    "id": "1599049333836943554152083976075643778521694662008646059830593274425966624028",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0xcbf2a3060f3472d8c68cce06eb1617afc4b993f3"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "38",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655153227",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x0cd05036c233fdf0eb1291b5a11241ee96e2f15fc181721a8a846e2d22473f06",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x75ecaa6cb983ffb446c6d53b4ceb00efa235cdea4e7d6f074b18fc2b7a2930d1",
+    "encodedRolled": null,
+    "rollTimestamp": "1655153404",
+    "weightedGameBet": null
+   },
+   {
+    "id": "61086759398223140717796571735550699162757395253314819725522974654234421935248",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0xcbf2a3060f3472d8c68cce06eb1617afc4b993f3"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "64",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655151769",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x58d01e9739df39bfe2524ec719d6b31c4a16cb586b638f7e73feac8da57ed493",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x57353028efa4d4fb791f185cdd3dd96425625469b9ce1987cef3d5517ac87c40",
+    "encodedRolled": null,
+    "rollTimestamp": "1655151961",
+    "weightedGameBet": null
+   },
+   {
+    "id": "35158151686857734802581831612671145170148013469532129158297572223355090036099",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0x92f20c84c319f0f03f5e9e4199f1c3c1a3c3990b"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "31",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655151640",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x176b5fcb6ab1f8cf47c3d1fabbc21d701db6a4ab6501d0d32ed1bf5f910d642b",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x92f8d23e716fc1002e2cc5608540b1c5326324d578a8df4ed8f806392a4672dc",
+    "encodedRolled": null,
+    "rollTimestamp": "1655153320",
+    "weightedGameBet": null
+   },
+   {
+    "id": "18137196922937848182032720236105204013472565545541256898708789085450706344227",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0xcbf2a3060f3472d8c68cce06eb1617afc4b993f3"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "42",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655151316",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x131bf429c9cf1cd7e26c668e0bc09bb9ba8c5595bc83f5e76b23a0adc40a88f8",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x1ad03c105e3269f3db599592576dd2029d809ca942d332e3dcb81be44c42482c",
+    "encodedRolled": null,
+    "rollTimestamp": "1655151685",
+    "weightedGameBet": null
+   },
+   {
+    "id": "47514625409367928202680675103966455889230226918547660441403621285835301975647",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0x19af8ee9aff0d9909c918af7e3c5e75d45eed518"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "21",
+    "betAmount": "70000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655151277",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x10e4e8b0abc2fd3cf72ca765c31db8d4041e310e3c962045e3d6cbf318709d80",
+    "rollTotalBetAmount": "70000000000000000000000",
+    "payout": "70000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x8bd6cf7846d248a2e3f5a2408774919c27800cae9fdfdd77850236a3b8f472e5",
+    "encodedRolled": null,
+    "rollTimestamp": "1655152228",
+    "weightedGameBet": null
+   },
+   {
+    "id": "56736470265020255728880271979634231751697864566490128449678948601481959627585",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0x7db9bb805219298eab96f91ded2cc9fe833d1e61"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "26",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655139569",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x962cbab02bb979c7456e3b1c769b3a54c1520beb4d37a007ecac7a9e29b20add",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x07253ff85dd6d9531068c0f03730f3e35fea738e72e0dfc0601803b44f84f54b",
+    "encodedRolled": null,
+    "rollTimestamp": "1655161937",
+    "weightedGameBet": null
+   },
+   {
+    "id": "75671783398849353808653341717243771272939669669255095455629558787731151483875",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0x36e813c6380dc8a7d4aaa6787b742a78ffafa311"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "98",
+    "betAmount": "10000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1655111962",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0xd05d59a14fb7d02c7e7a30d57c8650f7cfbf4b109ba663c06b87216751ebefa9",
+    "rollTotalBetAmount": "0",
+    "payout": "0",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0xe7f3cbbac678b29812b029be595d67e7682025ae832c1e12abd9ff11b8afb173",
+    "encodedRolled": [
+     "68"
+    ],
+    "rollTimestamp": "1655113497",
+    "weightedGameBet": null
+   },
+   {
+    "id": "59094510003936586717648904487902731250940454271871453912674170746590154086262",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0x11c1b8b20adca665dfc6f7d632d543ca0bc87314"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "30",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1654935562",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x8e6942aa2ef9c21568bbe7858768a923e5d27fce72de618b5857fbd1d990b4cf",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0xaa7f77f9021ea6d10db5ea53ddd6b4845073701d55d479ebcc203c3b201fd8ba",
+    "encodedRolled": null,
+    "rollTimestamp": "1654936492",
+    "weightedGameBet": null
+   },
+   {
+    "id": "80889224532389503145947572933415303571897229830756404671911241751340185887818",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0xa2554515a85929a95b35c3de4f8e2ebf81d4301f"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "50",
+    "betAmount": "10000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1654933177",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x0e44ef16d5e35d6b90c1ac7d7f105bd0df5e55a4bf9450e4846ab7431149ed6a",
+    "rollTotalBetAmount": "10000000000000000000000",
+    "payout": "10000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x851f838350a993abe2222383ed9081ad870963df42f58d617228c77e3ee970f7",
+    "encodedRolled": null,
+    "rollTimestamp": "1654941061",
+    "weightedGameBet": null
+   },
+   {
+    "id": "99390552530360902962257201820122301347447625430717856454447336688790265262566",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0xbda4c2552e5ed96a321066d0927209e85c3124dd"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "25",
+    "betAmount": "50000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1654932792",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0x63779e535c628a4da1af314ac005a0d6ff960dc79c7f95c65fb48795d10dc0fb",
+    "rollTotalBetAmount": "50000000000000000000000",
+    "payout": "50000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x851f838350a993abe2222383ed9081ad870963df42f58d617228c77e3ee970f7",
+    "encodedRolled": null,
+    "rollTimestamp": "1654941061",
+    "weightedGameBet": null
+   },
+   {
+    "id": "96784064436258426161041672443132713393952132606976073515019117566613413187244",
+    "gameId": "Dice",
+    "gameAddress": "0xebe9f31b4f276bd42ff45946514710babc48ce5f",
+    "user": {
+     "address": "0x6a68f355e9e6d4086fad5874192d661d4f93720b"
+    },
+    "gameToken": {
+     "id": "Dice-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "15",
+    "betAmount": "5000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1654932276",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0xc8bf429fa74bdb7b8c8141f7c5a20a2c799c941af02925fa0b79ea3396fac3b4",
+    "rollTotalBetAmount": "5000000000000000000000",
+    "payout": "5000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0xf59600188ff37314c9a0b1dc736bc59e518501a51e65b1782f678a79053221a1",
+    "encodedRolled": null,
+    "rollTimestamp": "1654932537",
+    "weightedGameBet": null
+   },
+   {
+    "id": "106566095795269928311005567710342569053620832290129985733625012620272354728516",
+    "gameId": "CoinToss",
+    "gameAddress": "0xa6d00859fa870620b8b79294cd9c6b02fcf982f4",
+    "user": {
+     "address": "0x36e813c6380dc8a7d4aaa6787b742a78ffafa311"
+    },
+    "gameToken": {
+     "id": "CoinToss-0x4e3cabd3ad77420ff9031d19899594041c420aee",
+     "token": {
+      "address": "0x4e3cabd3ad77420ff9031d19899594041c420aee",
+      "symbol": "TITANO",
+      "name": "Titano",
+      "decimals": 18
+     }
+    },
+    "affiliate": null,
+    "encodedInput": "1",
+    "betAmount": "10000000000000000000000",
+    "betCount": "1",
+    "stopLoss": "0",
+    "stopGain": "0",
+    "houseEdge": 350,
+    "betTimestamp": "1654932168",
+    "isResolved": true,
+    "isRefunded": true,
+    "chargedVRFFees": "0",
+    "betTxnHash": "0xdd305cbe2d103871577bbf0f092f98d285222f29fa6baac46c690cbbd19a2eff",
+    "rollTotalBetAmount": "10000000000000000000000",
+    "payout": "10000000000000000000000",
+    "payoutMultiplier": "1",
+    "rollTxnHash": "0x720a7a82a2d4933cab1cb67edd7ca923a4b0130eb628beca48606589486350e6",
+    "encodedRolled": null,
+    "rollTimestamp": "1654933300",
+    "weightedGameBet": null
+   }
+  ]
+ }
+}
