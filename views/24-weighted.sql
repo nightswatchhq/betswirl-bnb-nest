@@ -1,6 +1,6 @@
 -- WeightedGameBet (id = bet id) and WeightedGameConfig (id = configId).
 CREATE VIEW weighted_game_bet AS
-SELECT DISTINCT id, id AS bet, CAST(config_id AS VARCHAR) AS config FROM bs_placement WHERE config_id IS NOT NULL;
+SELECT DISTINCT id, id AS bet, CAST(config_id AS VARCHAR) AS config FROM bs_placed WHERE config_id IS NOT NULL;
 
 CREATE VIEW weighted_game_config AS
 SELECT id, multipliers, weights, "weightedGameId", "gameId", "creationTimestamp" FROM (

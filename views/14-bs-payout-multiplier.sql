@@ -9,7 +9,7 @@ WITH n AS (
   THEN (CASE WHEN rtrim(substr(total, 1, 34), '9') = '' THEN '1' || repeat('0', length(substr(total, 1, 34)))
   ELSE substr(rtrim(substr(total, 1, 34), '9'), 1, length(rtrim(substr(total, 1, 34), '9')) - 1)
     || chr(ascii(substr(rtrim(substr(total, 1, 34), '9'), length(rtrim(substr(total, 1, 34), '9')), 1)) + 1)
-    || repeat('0', length(substr(total, 1, 34)) - length(rtrim(substr(total, 1, 34), '9'))) END) ELSE substr(total, 1, 34) END) || repeat('0', length(total) - 34) END) AS t FROM bs_resolution WHERE kind = 'roll'
+    || repeat('0', length(substr(total, 1, 34)) - length(rtrim(substr(total, 1, 34), '9'))) END) ELSE substr(total, 1, 34) END) || repeat('0', length(total) - 34) END) AS t FROM bs_applied WHERE kind = 'roll'
 ), q AS (
   SELECT pos, p, CASE WHEN p = '0' OR t = '0' THEN NULL ELSE nuthatch_mul_div(p, '1' || repeat('0', 140), t) END AS q FROM n
 ), s AS (

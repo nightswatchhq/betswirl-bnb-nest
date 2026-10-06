@@ -140,10 +140,10 @@ const round = (s, n) => `(CASE WHEN length(${s}) > ${n} AND substr(${s}, ${n + 1
   THEN ${inc(`substr(${s}, 1, ${n})`)} ELSE substr(${s}, 1, ${n}) END)`;
 const norm34 = (x) => `(CASE WHEN length(${x}) <= 34 THEN ${x} ELSE ${round(x, 34)} || repeat('0', length(${x}) - 34) END)`;
 const K = 140;
-views["13-bs-payout-multiplier"] = `-- Bet.payoutMultiplier for a roll, as graph-node computes payout.toBigDecimal() / totalBetAmount.toBigDecimal().
+views["14-bs-payout-multiplier"] = `-- Bet.payoutMultiplier for a roll, as graph-node computes payout.toBigDecimal() / totalBetAmount.toBigDecimal().
 CREATE VIEW bs_payout_multiplier AS
 WITH n AS (
-  SELECT pos, ${norm34("payout")} AS p, ${norm34("total")} AS t FROM bs_resolution WHERE kind = 'roll'
+  SELECT pos, ${norm34("payout")} AS p, ${norm34("total")} AS t FROM bs_applied WHERE kind = 'roll'
 ), q AS (
   SELECT pos, p, CASE WHEN p = '0' OR t = '0' THEN NULL ELSE nuthatch_mul_div(p, '1' || repeat('0', ${K}), t) END AS q FROM n
 ), s AS (
@@ -166,7 +166,8 @@ FROM e;
 `;
 
 // ---- Bets ----------------------------------------------------------------------------------------
-views["14-bs-placed"] = `-- Placements with the weighted game's gameId resolved from the config as of the bet
+const weighted = games.find(([, g]) => !g)[0];
+views["13-bs-placed"] = `-- Placements with the weighted game's gameId resolved from the config as of the bet
 -- (handleWeightedGamePlaceBetV1 falls back to CUSTOM_WEIGHTED_GAME when the config is missing).
 CREATE VIEW bs_config AS
 SELECT CAST(c."configId" AS BIGINT) AS config_id,
@@ -178,15 +179,28 @@ SELECT CAST(c."configId" AS BIGINT) AS config_id,
        CAST(c.block_timestamp AS BIGINT) AS ts, ${pos("c")} AS pos
 FROM "weighted_game_v1__game_config_added" c;
 
+-- Burrmill computes a view referenced twice in one statement once only when it holds an aggregate,
+-- so this and bs_applied are written as GROUP BYs: every view below reads them without a rescan.
 CREATE VIEW bs_placed AS
 WITH cfg AS (
-  SELECT p.pos AS bet_pos, c.game_id, row_number() OVER (PARTITION BY p.pos ORDER BY c.pos DESC) AS rn
-  FROM bs_placement p JOIN bs_config c ON c.config_id = p.config_id AND c.pos < p.pos
+  SELECT ${pos("w")} AS bet_pos, max(c.pos) AS cfg_pos
+  FROM "${weighted}__place_bet" w JOIN bs_config c ON c.config_id = CAST(w."configId" AS BIGINT) AND c.pos < ${pos("w")}
+  GROUP BY 1
 )
 SELECT p.id, p.bettor, p.token, p.affiliate, p.amount, p.bet_count, p.stop_loss, p.stop_gain,
-       COALESCE(p.game_id, cfg.game_id, 'CUSTOM_WEIGHTED_GAME') AS game_id, p.config_id, p.input_value,
+       COALESCE(p.game_id, c.game_id, 'CUSTOM_WEIGHTED_GAME') AS game_id, p.config_id, p.input_value,
        p.charged_vrf_fees, p.game_address, p.ts, p.tx_hash, p.pos
-FROM bs_placement p LEFT JOIN cfg ON cfg.bet_pos = p.pos AND cfg.rn = 1;
+FROM bs_placement p LEFT JOIN cfg ON cfg.bet_pos = p.pos LEFT JOIN bs_config c ON c.pos = cfg.cfg_pos;
+
+-- Resolutions that reached a bet: the placement current at the resolution's position.
+CREATE VIEW bs_applied AS
+WITH j AS (
+  SELECT r.*, p.pos AS placement_pos, p.bettor, p.token AS p_token, p.bet_count
+  FROM bs_resolution r JOIN bs_placed p ON p.id = r.id AND p.pos < r.pos
+), m AS (
+  SELECT pos, max(placement_pos) AS placement_pos FROM j GROUP BY pos
+)
+SELECT j.* FROM j JOIN m ON m.pos = j.pos AND m.placement_pos = j.placement_pos;
 `;
 
 views["15-bs-freebet"] = `-- handleFreebetPlacedV1: the latest PlaceFreeBet for a bet that exists marks it a freebet.
@@ -202,66 +216,45 @@ SELECT id, placement_pos, freebet_id FROM (
 ) x WHERE rn2 = 1;
 `;
 
-views["16-bs-bet"] =`-- One row per Bet entity: the latest placement of each id, with houseEdge as _createBet read it.
-CREATE VIEW bs_bet_edge AS
-WITH ge AS (
-  SELECT x.pos, x.game_id, x.token,
-         max(x.edge_pos) OVER (PARTITION BY x.game_id, x.token ORDER BY x.pos ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS edge_pos,
-         x.is_bet
-  FROM (SELECT game_id, token, pos, pos AS edge_pos, false AS is_bet FROM bs_house_edge
-        UNION ALL SELECT game_id, token, pos, CAST(NULL AS BIGINT), true FROM bs_placed) x
-), ae AS (
-  SELECT x.pos, x.affiliate, x.game_id, x.token,
-         max(x.edge_pos) OVER (PARTITION BY x.affiliate, x.game_id, x.token ORDER BY x.pos ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS edge_pos,
-         x.is_bet
-  FROM (SELECT affiliate, game_id, token, pos, pos AS edge_pos, false AS is_bet FROM bs_affiliate_house_edge
-        UNION ALL SELECT affiliate, game_id, token, pos, CAST(NULL AS BIGINT), true FROM bs_placed) x
-)
-SELECT p.pos,
-       CASE WHEN a.house_edge > 0 THEN a.house_edge WHEN g.house_edge > 0 THEN g.house_edge ELSE 0 END AS house_edge
-FROM bs_placed p
-LEFT JOIN ge ON ge.is_bet AND ge.pos = p.pos
-LEFT JOIN bs_house_edge g ON g.game_id = p.game_id AND g.token = p.token AND g.pos = ge.edge_pos
-LEFT JOIN ae ON ae.is_bet AND ae.pos = p.pos AND ae.affiliate = p.affiliate AND ae.game_id = p.game_id AND ae.token = p.token
-LEFT JOIN bs_affiliate_house_edge a ON a.affiliate = p.affiliate AND a.game_id = p.game_id AND a.token = p.token AND a.pos = ae.edge_pos;
-
--- Resolutions that reached a bet: the placement current at the resolution's position.
-CREATE VIEW bs_applied AS
-WITH m AS (
-  SELECT r.pos AS rpos, max(p.pos) AS ppos
-  FROM bs_resolution r JOIN bs_placed p ON p.id = r.id AND p.pos < r.pos GROUP BY r.pos
-)
-SELECT r.*, p.pos AS placement_pos, p.bettor, p.token AS p_token, p.bet_count
-FROM m JOIN bs_resolution r ON r.pos = m.rpos JOIN bs_placed p ON p.pos = m.ppos;
-
+views["16-bs-bet"] = `-- One row per Bet entity: the latest placement of each id, with houseEdge as _createBet read it. A
+-- resolution reaches that placement exactly when it comes after it, so bs_applied needs no window here.
 CREATE VIEW bs_bet AS
-WITH latest AS (
-  SELECT * FROM (SELECT p.*, row_number() OVER (PARTITION BY p.id ORDER BY p.pos DESC) AS rn FROM bs_placed p) WHERE rn = 1
+WITH lp AS (
+  SELECT id, max(pos) AS pos FROM bs_placed GROUP BY id
+), l AS (
+  SELECT p.* FROM bs_placed p JOIN lp ON lp.pos = p.pos
+), ge AS (
+  SELECT l.pos, max(e.pos) AS edge_pos
+  FROM l JOIN bs_house_edge e ON e.game_id = l.game_id AND e.token = l.token AND e.pos < l.pos GROUP BY l.pos
+), ae AS (
+  SELECT l.pos, max(e.pos) AS edge_pos
+  FROM l JOIN bs_affiliate_house_edge e ON e.affiliate = l.affiliate AND e.game_id = l.game_id AND e.token = l.token AND e.pos < l.pos
+  GROUP BY l.pos
 ), res AS (
-  SELECT a.*,
-         row_number() OVER (PARTITION BY a.id ORDER BY a.pos DESC) AS rn_last,
-         row_number() OVER (PARTITION BY a.id, a.kind ORDER BY a.pos DESC) AS rn_kind,
-         row_number() OVER (PARTITION BY a.id, a.amount <> '0' ORDER BY a.pos DESC) AS rn_amount
-  FROM bs_applied a JOIN latest l ON l.id = a.id AND a.placement_pos = l.pos
-), refunded AS (
-  SELECT id FROM res WHERE kind = 'refund' GROUP BY id
+  SELECT a.id, max(a.pos) AS last_pos, max(CASE WHEN a.kind = 'roll' THEN a.pos END) AS roll_pos,
+         max(CASE WHEN a.amount <> '0' THEN a.pos END) AS amount_pos, bool_or(a.kind = 'refund') AS refunded
+  FROM bs_applied a JOIN lp ON lp.id = a.id AND lp.pos = a.placement_pos GROUP BY a.id
 )
 SELECT l.id, l.game_id AS "gameId", l.game_address AS "gameAddress", l.bettor AS "user",
        l.game_id || '-' || l.token AS "gameToken", l.affiliate, l.input_value AS "inputValue",
        COALESCE(amt.amount, l.amount) AS "betAmount", l.bet_count AS "betCount", l.stop_loss AS "stopLoss",
-       l.stop_gain AS "stopGain", CAST(he.house_edge AS INTEGER) AS "houseEdge", l.ts AS "betTimestamp",
-       last.id IS NOT NULL AS resolved, rf.id IS NOT NULL AS refunded, l.charged_vrf_fees AS "chargedVRFFees",
-       l.tx_hash AS "betTxnHash", fb.id IS NOT NULL AS "isFreebet", fb.freebet_id AS "freebetId",
-       last.total AS "totalBetAmount", last.payout,
+       l.stop_gain AS "stopGain",
+       CAST(CASE WHEN a.house_edge > 0 THEN a.house_edge WHEN g.house_edge > 0 THEN g.house_edge ELSE 0 END AS INTEGER) AS "houseEdge",
+       l.ts AS "betTimestamp", res.id IS NOT NULL AS resolved, COALESCE(res.refunded, false) AS refunded,
+       l.charged_vrf_fees AS "chargedVRFFees", l.tx_hash AS "betTxnHash", fb.id IS NOT NULL AS "isFreebet",
+       fb.freebet_id AS "freebetId", last.total AS "totalBetAmount", last.payout,
        CASE WHEN last.kind = 'refund' THEN '1' ELSE pm.multiplier END AS "payoutMultiplier",
        last.tx_hash AS "rollTxnHash", roll.rolled, last.ts AS "rollTimestamp", l.pos AS bs_pos
-FROM latest l
-JOIN bs_bet_edge he ON he.pos = l.pos
-LEFT JOIN res last ON last.id = l.id AND last.rn_last = 1
-LEFT JOIN bs_payout_multiplier pm ON pm.pos = last.pos
-LEFT JOIN res roll ON roll.id = l.id AND roll.kind = 'roll' AND roll.rn_kind = 1
-LEFT JOIN res amt ON amt.id = l.id AND amt.amount <> '0' AND amt.rn_amount = 1
-LEFT JOIN refunded rf ON rf.id = l.id
+FROM l
+LEFT JOIN ge ON ge.pos = l.pos
+LEFT JOIN bs_house_edge g ON g.game_id = l.game_id AND g.token = l.token AND g.pos = ge.edge_pos
+LEFT JOIN ae ON ae.pos = l.pos
+LEFT JOIN bs_affiliate_house_edge a ON a.affiliate = l.affiliate AND a.game_id = l.game_id AND a.token = l.token AND a.pos = ae.edge_pos
+LEFT JOIN res ON res.id = l.id
+LEFT JOIN bs_applied last ON last.pos = res.last_pos
+LEFT JOIN bs_payout_multiplier pm ON pm.pos = res.last_pos
+LEFT JOIN bs_applied roll ON roll.pos = res.roll_pos
+LEFT JOIN bs_applied amt ON amt.pos = res.amount_pos
 LEFT JOIN bs_freebet fb ON fb.id = l.id AND fb.placement_pos = l.pos;
 `;
 // ---- The Graph entities the SDK reads -----------------------------------------------------------
@@ -300,7 +293,7 @@ FROM k LEFT JOIN last l ON l.game_id = k.game_id AND l.token = k.token AND l.rn 
 
 views["24-weighted"] = `-- WeightedGameBet (id = bet id) and WeightedGameConfig (id = configId).
 CREATE VIEW weighted_game_bet AS
-SELECT DISTINCT id, id AS bet, CAST(config_id AS VARCHAR) AS config FROM bs_placement WHERE config_id IS NOT NULL;
+SELECT DISTINCT id, id AS bet, CAST(config_id AS VARCHAR) AS config FROM bs_placed WHERE config_id IS NOT NULL;
 
 CREATE VIEW weighted_game_config AS
 SELECT id, multipliers, weights, "weightedGameId", "gameId", "creationTimestamp" FROM (
@@ -408,5 +401,6 @@ LEFT JOIN counters n ON n.token = c.token
 LEFT JOIN alloc a ON a.token = c.token;
 `;
 fs.mkdirSync(dir + "/views", { recursive: true });
+for (const f of fs.readdirSync(`${dir}/views`)) if (f.endsWith(".sql")) fs.unlinkSync(`${dir}/views/${f}`);
 for (const [name, sql] of Object.entries(views)) fs.writeFileSync(`${dir}/views/${name}.sql`, sql);
 console.log(Object.keys(views).join(" "));

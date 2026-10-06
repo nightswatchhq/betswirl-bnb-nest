@@ -78,7 +78,7 @@ S0 marked four fields at risk. None needed a guess.
 - **`payoutMultiplier`** is `payout.toBigDecimal().div(totalBetAmount.toBigDecimal())`. graph-node
   normalises each operand to 34 significant digits, divides with the `bigdecimal` 0.1.2 crate (100
   digits, rounded on the 101st) and normalises the quotient to 34 again, half up each time.
-  `views/13-bs-payout-multiplier.sql` does the same on decimal strings, so a quotient like
+  `views/14-bs-payout-multiplier.sql` does the same on decimal strings, so a quotient like
   `0.5078775000000000000002014182230472` matches to the last digit.
 
 No public endpoint serves the deployment or its Polygon twin
@@ -142,10 +142,12 @@ ThinkPad, most of it the dense range.
 
 ### Query cost
 
-Every view is recomputed per query. On w1 (31,651 bets) the SDK's Bets query takes about 2 s cold and
-a millisecond from the answer cache; over the full 161,000 bets expect several seconds cold. The as-of
-joins and the `payoutMultiplier` arithmetic are not in the subset RFC-0041 entities accept, so they stay
-views.
+Every view is recomputed per query. Over the full 160,802 bets the SDK's Bets query takes about 5.5 s
+cold on the ThinkPad at the default two analytics threads (10.4 s before nightswatchhq/nuthatch#1951),
+of which about 1.5 s is planning. A repeated statement is answered from the answer cache while nothing
+it reads has changed; at BSC's tip that holds only from nightswatchhq/nuthatch#1955, before which every
+two-second poll cleared it. The as-of joins and the `payoutMultiplier` arithmetic are not in the subset
+RFC-0041 entities accept, so they stay views.
 
 ## Assumptions
 
