@@ -42,7 +42,7 @@ revert() {
 
 cat >> "$CADDYFILE" <<EOF
 
-# BetSwirl BNB stopgap nest (nightswatchhq/nuthatch#1941), served from the ThinkPad. Added $(date -u +%F).
+# BetSwirl BNB stopgap nest (nuthatch-org/nuthatch#1941), served from the ThinkPad. Added $(date -u +%F).
 $HOST {
 	@preflight method OPTIONS
 	handle @preflight {

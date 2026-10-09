@@ -1,10 +1,10 @@
 # BetSwirl BNB Chain nest
 
-A [nuthatch](https://github.com/nightswatchhq/nuthatch) nest that answers the GraphQL queries BetSwirl's
+A [nuthatch](https://github.com/nuthatch-org/nuthatch) nest that answers the GraphQL queries BetSwirl's
 published client sends, for the BNB Chain deployment that no indexer serves any more:
 [`Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB`](https://thegraph.com/explorer/deployments/Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB)
 (`bsc`, start block 16,689,819). It is the first nest of the subgraph stopgap
-([nightswatchhq/nuthatch#1941](https://github.com/nightswatchhq/nuthatch/issues/1941)).
+([nuthatch-org/nuthatch#1941](https://github.com/nuthatch-org/nuthatch/issues/1941)).
 
 **Every field the SDK's `bet`, `bets`, `token` and `tokens` documents select answers, exactly.** Fields
 outside those documents that this nest does not reproduce are refused by name. It is not a drop-in
@@ -113,7 +113,7 @@ same inputs on both sides rather than the deployment's true values; w1 is the de
 
 GraphQL needs the `nuthatch-graph` release download, 4.12.0 or later: the default binary has no
 `/graphql` route, and releases before 4.11.0 refuse the SDK's Bets query. The step-by-step handback,
-tested cold, is [docs/stopgap/betswirl-bnb.md](https://github.com/nightswatchhq/nuthatch/blob/main/docs/stopgap/betswirl-bnb.md)
+tested cold, is [docs/stopgap/betswirl-bnb.md](https://github.com/nuthatch-org/nuthatch/blob/main/docs/stopgap/betswirl-bnb.md)
 in nuthatch; it also shows seeding from the public mirror instead of a full backfill.
 
 The BNB public endpoint refuses 10 or more addresses per `eth_getLogs` and anything older than about
@@ -142,9 +142,9 @@ ThinkPad, most of it the dense range.
 ### Query cost
 
 Every view is recomputed per query. Over the full 160,802 bets the SDK's Bets query takes about 5.5 s
-cold on the ThinkPad at the default two analytics threads (10.4 s before nightswatchhq/nuthatch#1951),
+cold on the ThinkPad at the default two analytics threads (10.4 s before nuthatch-org/nuthatch#1951),
 of which about 1.5 s is planning. A repeated statement is answered from the answer cache while nothing
-it reads has changed; at BSC's tip that holds only from nightswatchhq/nuthatch#1955, before which every
+it reads has changed; at BSC's tip that holds only from nuthatch-org/nuthatch#1955, before which every
 two-second poll cleared it. The as-of joins and the `payoutMultiplier` arithmetic are not in the subset
 RFC-0041 entities accept, so they stay views.
 
