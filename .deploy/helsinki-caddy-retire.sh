@@ -5,7 +5,7 @@ set -euo pipefail
 
 HOST=${HOST:-betswirl-bnb.89.167.109.4.sslip.io}
 CADDYFILE=/etc/caddy/Caddyfile
-NOTE="Retired 2026-10-07: the BetSwirl BNB stopgap nest had no users. Run it yourself from https://github.com/nightswatchhq/nuthatch/blob/main/docs/stopgap/betswirl-bnb.md"
+NOTE="Retired 2026-10-07: the BetSwirl BNB stopgap nest had no users. Run it yourself from https://github.com/nuthatch-org/nuthatch/blob/main/docs/stopgap/betswirl-bnb.md"
 
 say() { echo "helsinki-caddy-retire: $*" >&2; }
 [ "$(id -u)" = 0 ] || { say "run as root"; exit 1; }
